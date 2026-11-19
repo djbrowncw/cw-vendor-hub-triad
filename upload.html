@@ -150,7 +150,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;f
         <button type="button" class="opt" data-val="Certificate of Insurance"><span class="ic">&#9878;</span><b>Certificate of Insurance</b><span>General liability, workers' comp, or both. New or an annual renewal.</span></button>
         <button type="button" class="opt" data-val="W-9"><span class="ic">&#128196;</span><b>W-9</b><span>Your signed IRS Form W-9.</span></button>
         <button type="button" class="opt" data-val="Voided Check / Bank Letter"><span class="ic">&#128179;</span><b>Voided Check / Bank Letter</b><span>For direct deposit setup.</span></button>
-        <button type="button" class="opt" data-val="Other Document"><span class="ic">&#128206;</span><b>Something Else</b><span>Signed vendor packet or another document compliance asked for.</span></button>
+        <button type="button" class="opt" data-val="Signed Vendor Packet"><span class="ic">&#9998;</span><b>Signed Vendor Packet</b><span>Your completed, signed vendor packet.</span></button>
+        <button type="button" class="opt" data-val="Other Document"><span class="ic">&#128206;</span><b>Something Else</b><span>Another document our team asked for.</span></button>
       </div>
 
       <div id="coverageWrap" class="hidden">
@@ -203,7 +204,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;f
         <button class="btn solid" type="submit" id="sendbtn">Send to City Wide Compliance</button>
         <span id="msg" class="msg"></span>
       </div>
-      <p class="goes">Goes to: City Wide of The Triad Compliance (nccompliance@gocitywide.com)</p>
+      <p class="goes" id="goes">Goes to: City Wide of The Triad Compliance (nccompliance@gocitywide.com)</p>
     </form>
   </div>
 
@@ -264,7 +265,11 @@ function refresh(){
   $("step3").classList.toggle("hidden", !ready);
   $("agencyWrap").classList.toggle("hidden", state.sender !== "Insurance Agent");
   $("expWrap").classList.toggle("hidden", !isCOI);
-  $("fileLabel").textContent = isCOI ? "The certificate" : "The document";
+  $("fileLabel").textContent = isCOI ? "The certificate" : (state.docType === "Signed Vendor Packet" ? "The signed packet" : "The document");
+  var packet = state.docType === "Signed Vendor Packet";
+  $("goes").textContent = packet ? "Goes to: Meganne Amaro, City Wide of The Triad (meganne.amaro@gocitywide.com)"
+                                 : "Goes to: City Wide of The Triad Compliance (nccompliance@gocitywide.com)";
+  $("sendbtn").textContent = packet ? "Send to City Wide" : "Send to City Wide Compliance";
   var tags = [state.docType, isCOI ? state.coverage : "", state.sender === "Insurance Agent" ? "Sent by agent" : (state.sender ? "Sent by vendor" : "")];
   $("summary").innerHTML = tags.filter(Boolean).map(function(t){ return "<span>" + t.replace(/</g,"&lt;") + "</span>"; }).join("");
   if(ready && !refresh.scrolled){ refresh.scrolled = true; $("step3").scrollIntoView({behavior:"smooth", block:"start"}); }
@@ -345,14 +350,14 @@ $("step3").addEventListener("submit", function(e){
   }).then(function(r){ return r.json(); })
   .then(function(res){
     if(!res || !res.ok) throw new Error(res && res.error ? res.error : "Something went wrong.");
-    $("donetext").textContent = "The compliance team has your " + state.docType.toLowerCase().replace("w-9","W-9") +
+    $("donetext").textContent = (state.docType === "Signed Vendor Packet" ? "Our team has your " : "The compliance team has your ") + state.docType.toLowerCase().replace("w-9","W-9") +
       " for " + $("company").value.trim() + ". A confirmation is on its way to " + $("email").value.trim() + ".";
     $("flow").classList.add("hidden");
     document.querySelector(".note").classList.add("hidden");
     $("doneview").classList.remove("hidden");
     window.scrollTo({top:0,behavior:"smooth"});
   }).catch(function(err){
-    btn.disabled = false; btn.textContent = "Send to City Wide Compliance";
+    btn.disabled = false; refresh();
     msg.className = "msg err";
     msg.textContent = "We could not send that (" + err.message + "). Try again, or email it to " + COMPLIANCE_EMAIL + ".";
   });

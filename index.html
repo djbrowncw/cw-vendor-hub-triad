@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vendor Resource Hub | City Wide of The Triad</title>
+<meta name="description" content="City Wide of The Triad vendor resource hub: open work, onboarding, invoices, compliance documents and crew guides.">
+<style>
+:root{--red:#D22730;--red-dark:#B01F27;--black:#2D2A26;--grey:#636466;--light:#F5F5F5;
+--border:#E5E5E5;--gold:#E5B423;
+--shadow:0 1px 3px rgba(45,42,38,.08),0 4px 14px rgba(45,42,38,.06);
+--shadow-lift:0 4px 10px rgba(45,42,38,.10),0 10px 28px rgba(45,42,38,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Verdana,'Liberation Sans','DejaVu Sans',Geneva,Tahoma,sans-serif;
+color:var(--black);background:var(--light);font-size:14px;line-height:1.6}
+a{color:var(--red);text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+
+/* header */
+.head{background:#fff;position:sticky;top:0;z-index:50;box-shadow:0 1px 8px rgba(45,42,38,.10)}
+.head .bar{max-width:1160px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;gap:14px}
+.logo{font-weight:700;font-size:17px;white-space:nowrap;color:var(--black)}
+.logo b{color:var(--red)}
+.head .t{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);
+border-left:2px solid var(--border);padding-left:14px;white-space:nowrap}
+.head nav{margin-left:auto;display:flex;gap:4px}
+.head nav a{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--black);
+padding:8px 11px;border-radius:8px;white-space:nowrap}
+.head nav a:hover{background:var(--light);color:var(--red)}
+.menubtn{display:none;margin-left:auto;background:none;border:1.5px solid var(--border);border-radius:8px;
+font-size:16px;padding:4px 10px;cursor:pointer;color:var(--black)}
+@media(max-width:860px){
+  .head .t{display:none}
+  .menubtn{display:block}
+  .head nav{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;flex-direction:column;
+  padding:8px 16px 14px;box-shadow:0 8px 16px rgba(45,42,38,.12)}
+  .head nav.open{display:flex}
+}
+
+/* hero */
+.hero{color:#fff;background:linear-gradient(180deg,#26231f 0%,var(--black) 75%)}
+.hero .wrap{padding-top:44px;padding-bottom:84px}
+.eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#bdb9b3;
+display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:3px;background:var(--red);border-radius:2px}
+.hero h1{font-size:clamp(26px,4.4vw,42px);line-height:1.15;margin-top:12px;max-width:760px}
+.hero h1 span{color:var(--red)}
+.hero p{color:#cfcdc9;margin-top:14px;max-width:620px;font-size:14px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;font-size:12.5px;font-weight:700;border-radius:10px;padding:11px 18px;white-space:nowrap}
+.btn.solid{background:var(--red);color:#fff}
+.btn.solid:hover{background:var(--red-dark)}
+.btn.ghost{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.btn.ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.btn.outline{border:1.5px solid var(--border);color:var(--black);background:#fff}
+.btn.outline:hover{border-color:var(--red);color:var(--red)}
+.cities{margin-top:22px;font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#8f8b85}
+.cities b{color:#fff}
+.cities .dot{color:var(--red);padding:0 8px}
+
+/* most used */
+.quick{position:relative;z-index:5;margin-top:-46px}
+.qcard{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-lift);padding:16px 18px 14px}
+.qcard h2{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
+.qrow{display:flex;flex-wrap:wrap;gap:9px}
+.qbtn{font-size:12px;font-weight:700;color:var(--black);border:1.5px solid var(--border);border-radius:10px;
+padding:9px 13px;background:#fff;white-space:nowrap}
+.qbtn:hover{border-color:var(--red);color:var(--red);box-shadow:var(--shadow)}
+.qbtn.primary{background:var(--red);border-color:var(--red);color:#fff}
+
+/* sections */
+section.block{padding:46px 0 6px;scroll-margin-top:70px}
+.shead .kick{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.shead h2{font-size:clamp(20px,2.6vw,26px);line-height:1.25;margin-top:4px}
+.shead p{color:var(--grey);margin-top:6px;max-width:680px;font-size:13.5px}
+.grid{display:grid;gap:16px;margin-top:20px}
+.g3{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.g2{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);
+padding:20px 22px;display:flex;flex-direction:column;gap:8px}
+.card .tag{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+.card h3{font-size:15px;line-height:1.35}
+.card p{font-size:12.8px;color:var(--grey);flex:1}
+.card .go{font-size:12.5px;font-weight:700;margin-top:4px}
+.card.live{border-left:5px solid var(--red)}
+.soon{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+background:var(--light);color:var(--grey);border:1px solid var(--border);border-radius:20px;padding:2px 8px;margin-left:6px;vertical-align:2px}
+a.inert{cursor:default;color:var(--grey)}
+
+/* steps */
+.steps{counter-reset:s}
+.step .num{width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;
+display:flex;align-items:center;justify-content:center;font-size:14px}
+.step .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+
+/* pay terms */
+.terms{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:6px}
+.term{background:var(--light);border-radius:10px;padding:12px 14px}
+.term b{display:block;font-size:15px}
+.term span{font-size:11.5px;color:var(--grey)}
+
+/* recognition */
+.vom{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:var(--black);color:#fff;
+border-radius:14px;padding:24px 26px;border-left:5px solid var(--gold)}
+.vom .plate{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.vom h3{font-size:18px;margin-top:2px}
+.vom p{color:#cfcdc9;font-size:13px;margin-top:4px;max-width:560px}
+.vom .btn{margin-left:auto}
+
+/* contact */
+.contact{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:24px 26px;
+display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.contact h4{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:4px}
+.contact div{font-size:13px}
+
+footer{border-top:1px solid var(--border);padding:24px 0;margin-top:48px;background:#fff}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--grey)}
+footer .note{flex-basis:100%;font-size:11px}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div class="bar">
+    <a class="logo" href="#top">City Wide <b>of The Triad</b></a>
+    <span class="t">Vendor Resource Hub</span>
+    <button class="menubtn" aria-label="Menu" onclick="document.getElementById('mainnav').classList.toggle('open')">&#9776;</button>
+    <nav id="mainnav">
+      <a href="#opportunities">Opportunities</a>
+      <a href="#new-vendors">New Vendors</a>
+      <a href="#paperwork">Invoices &amp; Paperwork</a>
+      <a href="#guides">Crew Guides</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">City Wide Facility Solutions</div>
+    <h1>The Vendor Resource Hub for <span>The Triad</span></h1>
+    <p>Everything your crew needs to work with City Wide in one place: open work, onboarding, invoices, compliance paperwork, and the guides that keep every building on standard.</p>
+    <div class="ctas">
+      <a class="btn solid" href="#opportunities">View Open Opportunities</a>
+      <a class="btn ghost" href="#new-vendors">New Vendor? Start Here</a>
+    </div>
+    <div class="cities"><b>Greensboro</b><span class="dot">&bull;</span><b>Winston-Salem</b><span class="dot">&bull;</span><b>High Point</b></div>
+  </div>
+</div>
+
+<div class="wrap quick">
+  <div class="qcard">
+    <h2>Most used</h2>
+    <div class="qrow">
+      <a class="qbtn primary" data-link="invoice" href="#">Submit an Invoice</a>
+      <a class="qbtn" data-link="compliance" href="#">Send Compliance Docs</a>
+      <a class="qbtn" href="#opportunities">Open Opportunities</a>
+      <a class="qbtn" href="#new-vendors">New Vendor Checklist</a>
+      <a class="qbtn" href="#contact">Contact Operations</a>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- OPPORTUNITIES -->
+  <section class="block" id="opportunities">
+    <div class="shead">
+      <div class="kick">Crews wanted</div>
+      <h2>Open Opportunities</h2>
+      <p>New contracts and one-time projects post here when they open. Vendors whose services match a posting hear about it first.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <div class="tag">Live board</div>
+        <h3>Triad Opportunity Board <span class="soon">Coming soon</span></h3>
+        <p>Open janitorial contracts, floor care, day porter, and one-time projects across Greensboro, Winston-Salem and High Point.</p>
+        <a class="go inert" href="#" data-inert>See what is open &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="tag">Get notified</div>
+        <h3>Tell Us What Your Crew Does <span class="soon">Coming soon</span></h3>
+        <p>Complete the vendor evaluation once and choose your services. Your services list decides which postings you are sent.</p>
+        <a class="go inert" href="#" data-inert>Complete the evaluation &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW VENDORS -->
+  <section class="block" id="new-vendors">
+    <div class="shead">
+      <div class="kick">New to City Wide?</div>
+      <h2>Three Steps to Your First Building</h2>
+      <p>No cost to join. Tell us what your crew does, meet the team, and get your paperwork in.</p>
+    </div>
+    <div class="grid g3 steps">
+      <div class="card step">
+        <div class="num">1</div>
+        <h3>Tell Us What Your Crew Does</h3>
+        <p>Fill out the vendor evaluation and pick your services: janitorial, floor care, porter, windows, landscaping, the trades, and more.</p>
+        <div class="links"><a class="go inert" href="#" data-inert>Vendor evaluation <span class="soon">Soon</span></a></div>
+      </div>
+      <div class="card step">
+        <div class="num">2</div>
+        <h3>Meet the Team &amp; Send Your Paperwork</h3>
+        <p>Signed vendor packet, W-9, banking for direct deposit, and a certificate of insurance. City Wide requires workers' compensation for every subcontractor, even a one-person crew.</p>
+        <div class="links">
+          <a class="go inert" href="#" data-inert>Request the vendor packet <span class="soon">Soon</span></a>
+          <a class="go" data-link="compliance" href="#">Send compliance docs &rarr;</a>
+        </div>
+      </div>
+      <div class="card step">
+        <div class="num">3</div>
+        <h3>Get to Work</h3>
+        <p>Watch the board, answer the postings that fit your crew, and read the crew guides before the first clean.</p>
+        <div class="links">
+          <a class="go" href="#opportunities">View the board &rarr;</a>
+          <a class="go" href="#guides">Crew guides &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAPERWORK -->
+  <section class="block" id="paperwork">
+    <div class="shead">
+      <div class="kick">Invoices, orders &amp; paperwork</div>
+      <h2>Get Paid, Get Stocked, Stay Compliant</h2>
+    </div>
+    <div class="grid g2">
+      <div class="card live">
+        <div class="tag">Get paid</div>
+        <h3>Submit Your Monthly Invoice</h3>
+        <p>One invoice a month covering every account you service. Send it to Triad Accounts Payable.</p>
+        <div class="terms">
+          <div class="term"><b>1st at noon</b><span>Invoice deadline</span></div>
+          <div class="term"><b>Around the 10th</b><span>Payment for on-time invoices</span></div>
+          <div class="term"><b>Around the 25th</b><span>Payment for any late invoice, no exceptions</span></div>
+        </div>
+        <p style="font-size:11.5px">Certain high-ticket projects carry a pay-when-paid stipulation, which will be stated on the job.</p>
+        <a class="btn solid" style="align-self:flex-start" data-link="invoice" href="#">Submit an invoice</a>
+      </div>
+      <div class="card live">
+        <div class="tag">Compliance</div>
+        <h3>Send Insurance &amp; Compliance Docs</h3>
+        <p>Certificates of insurance (including annual renewals), workers' compensation, W-9, and a voided check for direct deposit. Insurance agents can send certificates directly.</p>
+        <a class="btn outline" style="align-self:flex-start" data-link="compliance" href="#">Email the compliance team</a>
+      </div>
+      <div class="card">
+        <div class="tag">Your crew</div>
+        <h3>Add or Remove a Cleaner <span class="soon">Coming soon</span></h3>
+        <p>Tell City Wide who your crew is sending into a building, or who is coming off.</p>
+        <a class="go inert" href="#" data-inert>Report a cleaner &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="tag">Supplies</div>
+        <h3>Report Supplies Needed <span class="soon">Coming soon</span></h3>
+        <p>Building low on paper, soap, liners or restroom stock? Tell City Wide what it needs. It is a report, not an order.</p>
+        <a class="go inert" href="#" data-inert>Report what is needed &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="tag">Job complete</div>
+        <h3>Maintenance Work Ticket <span class="soon">Coming soon</span></h3>
+        <p>File your work ticket with time, materials, receipt photos, and pictures of the finished work before you leave the site.</p>
+        <a class="go inert" href="#" data-inert>File the work ticket &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="tag">Secured buildings</div>
+        <h3>Background Check &amp; Name Badge <span class="soon">Coming soon</span></h3>
+        <p>Required before your crew works in secured buildings.</p>
+        <a class="go inert" href="#" data-inert>Start the process &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDES -->
+  <section class="block" id="guides">
+    <div class="shead">
+      <div class="kick">Crew guides</div>
+      <h2>Know the Standard Before the First Shift</h2>
+      <p>Quantities and methods are guidance; your account scope of work always comes first.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card"><h3>New Building Inventory Planner <span class="soon">Soon</span></h3><p>A starting kit list by building size and cleaning type.</p></div>
+      <div class="card"><h3>Workloading &amp; Crew Sizing <span class="soon">Soon</span></h3><p>Turn square footage into hours and crew count.</p></div>
+      <div class="card"><h3>Choosing Your Equipment <span class="soon">Soon</span></h3><p>Buckets, flat mops vs. string mops, and why microfiber wins.</p></div>
+      <div class="card"><h3>The Color Coding System <span class="soon">Soon</span></h3><p>Which cloth and mop goes where to stop cross contamination.</p></div>
+      <div class="card"><h3>Medical Facility Cleaning <span class="soon">Soon</span></h3><p>PPE, isolation rooms, and the hot spots that keep the account.</p></div>
+    </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section class="block" id="recognition">
+    <div class="vom">
+      <div>
+        <div class="plate">Vendor of the Month</div>
+        <h3>The first Triad plate goes up soon.</h3>
+        <p>Every month one crew earns the plate for the work they do in our buildings. Know a crew who has earned it?</p>
+      </div>
+      <a class="btn solid inert" href="#" data-inert>Nominate a crew <span class="soon" style="background:#fff">Soon</span></a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="block" id="contact">
+    <div class="shead">
+      <div class="kick">Reach City Wide of The Triad</div>
+      <h2>Questions on a building, a route, or a payment?</h2>
+    </div>
+    <div class="contact" style="margin-top:20px">
+      <div><h4>Office</h4>(919) 909-2008<br>2300 W Meadowview Road, Suite 107/109<br>Greensboro, NC 27407</div>
+      <div><h4>Invoices &amp; payments</h4><a href="mailto:cwtriadinvoices@gocitywide.com">cwtriadinvoices@gocitywide.com</a></div>
+      <div><h4>Compliance documents</h4><a href="mailto:nccompliance@gocitywide.com">nccompliance@gocitywide.com</a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>CAVU NC LLC dba City Wide Facility Solutions &middot; Vendor Resource Hub</div>
+    <div>GREENSBORO &bull; WINSTON-SALEM &bull; HIGH POINT</div>
+    <div class="note">For crew and vendor reference. Your account scope of work always comes first. Questions? Contact your City Wide Facility Solutions representative.</div>
+  </div>
+</footer>
+
+<script>
+/* Live links, edited in one place. When the invoice web form is ready,
+   replace the invoice mailto with its URL (e.g. "invoice.html"). */
+var LINKS = {
+  invoice:    "mailto:cwtriadinvoices@gocitywide.com?subject=Monthly%20Invoice",
+  compliance: "mailto:nccompliance@gocitywide.com?subject=Compliance%20Documents"
+};
+document.querySelectorAll("[data-link]").forEach(function(a){
+  var url = LINKS[a.getAttribute("data-link")];
+  if(url){ a.href = url; }
+});
+document.querySelectorAll("[data-inert]").forEach(function(a){
+  a.addEventListener("click", function(e){ e.preventDefault(); });
+});
+document.querySelectorAll("#mainnav a").forEach(function(a){
+  a.addEventListener("click", function(){ document.getElementById("mainnav").classList.remove("open"); });
+});
+</script>
+</body>
+</html>

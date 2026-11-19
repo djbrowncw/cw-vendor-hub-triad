@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Open Opportunities | City Wide of The Triad</title>
+<meta name="description" content="Open janitorial contracts and one-time projects with City Wide of The Triad.">
+<style>
+:root{--red:#D22730;--red-dark:#B01F27;--black:#2D2A26;--grey:#636466;--light:#F5F5F5;
+--border:#E5E5E5;--gold:#E5B423;--green:#2E7D4F;
+--shadow:0 1px 3px rgba(45,42,38,.08),0 4px 14px rgba(45,42,38,.06);
+--shadow-lift:0 4px 10px rgba(45,42,38,.10),0 10px 28px rgba(45,42,38,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Verdana,'Liberation Sans','DejaVu Sans',Geneva,Tahoma,sans-serif;
+color:var(--black);background:var(--light);font-size:14px;line-height:1.6}
+a{color:var(--red);text-decoration:none}
+.hidden{display:none !important}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+
+.hero{color:#fff;background:linear-gradient(180deg,#26231f 0%,var(--black) 75%)}
+.hero .wrap{padding-top:30px;padding-bottom:34px}
+.crumb{font-size:11.5px;color:#bdb9b3}
+.crumb a{color:#fff;font-weight:700}
+.hero h1{font-size:clamp(24px,3.6vw,34px);line-height:1.2;margin-top:8px}
+.hero h1::after{content:"";display:block;width:56px;height:4px;background:var(--red);border-radius:2px;margin-top:11px}
+.hero p{color:#cfcdc9;margin-top:12px;max-width:680px;font-size:13.5px}
+
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:22px;background:#fff;border:1px solid var(--border);
+border-radius:12px;padding:12px 14px;box-shadow:var(--shadow)}
+.filters label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.filters select{font-family:inherit;font-size:13px;border:1.5px solid var(--border);border-radius:8px;padding:7px 10px;background:#fff}
+.filters .count{margin-left:auto;font-size:12.5px;color:var(--grey)}
+
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:16px}
+.opp{background:#fff;border:1px solid var(--border);border-left:5px solid var(--red);border-radius:14px;box-shadow:var(--shadow);
+padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.opp .tags{display:flex;gap:6px;flex-wrap:wrap}
+.opp .tag{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:20px;padding:3px 9px;background:var(--light);color:var(--black)}
+.opp .tag.type{background:var(--black);color:#fff}
+.opp h3{font-size:15.5px;line-height:1.35}
+.opp dl{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:12.5px}
+.opp dt{color:var(--grey)}
+.opp p{font-size:12.8px;color:var(--grey);flex:1}
+.opp .posted{font-size:11px;color:var(--grey)}
+.btn{display:inline-block;font-family:inherit;font-size:13px;font-weight:700;border-radius:10px;padding:11px 18px;
+border:none;cursor:pointer;white-space:nowrap}
+.btn.solid{background:var(--red);color:#fff}
+.btn.solid:hover{background:var(--red-dark)}
+.btn.solid:disabled{opacity:.6;cursor:default}
+.btn.outline{background:#fff;border:1.5px solid var(--border);color:var(--black)}
+
+.empty{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:34px 24px;text-align:center;margin-top:16px}
+.empty h3{font-size:17px}
+.empty p{color:var(--grey);font-size:13px;margin:6px auto 14px;max-width:520px}
+.loading{color:var(--grey);font-size:13px;margin-top:20px}
+
+.tip{display:flex;gap:16px;align-items:center;flex-wrap:wrap;background:var(--black);color:#fff;border-radius:14px;padding:20px 24px;margin-top:28px}
+.tip p{color:#cfcdc9;font-size:13px;flex:1;min-width:240px}
+.tip b{color:#fff}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(30,28,25,.55);display:flex;align-items:center;justify-content:center;padding:16px;z-index:100}
+.mcard{background:#fff;border-radius:14px;box-shadow:var(--shadow-lift);width:100%;max-width:520px;max-height:92vh;overflow:auto;padding:22px 24px}
+.mcard h2{font-size:17px}
+.mcard .sub{font-size:12.5px;color:var(--grey);margin:2px 0 14px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+label.f{display:block;font-size:12px;font-weight:700;margin:10px 0 4px}
+label.f .req{color:var(--red)}
+input,textarea{width:100%;font-family:inherit;font-size:13.5px;border:1.5px solid var(--border);border-radius:9px;padding:9px 11px;outline:none}
+input:focus,textarea:focus{border-color:var(--red)}
+textarea{min-height:70px;resize:vertical}
+.bad{border-color:var(--red) !important;background:#fff6f6}
+.mact{display:flex;gap:10px;align-items:center;margin-top:16px;flex-wrap:wrap}
+.msg{font-size:12.5px;font-weight:700}
+.msg.err{color:var(--red)}
+.ok{text-align:center;padding:10px 0}
+.ok .check{width:52px;height:52px;border-radius:50%;background:var(--green);color:#fff;font-size:26px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+
+footer{border-top:1px solid var(--border);padding:22px 0;margin-top:44px;background:#fff}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--grey);max-width:1160px}
+</style>
+<style id="brand">
+.head{background:#fff;position:sticky;top:0;z-index:50;box-shadow:0 1px 8px rgba(45,42,38,.10)}
+.head .bar{max-width:1160px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;gap:14px;position:relative;background:none;border-radius:0;overflow:visible}
+.head .logo{display:flex;align-items:center;gap:10px;white-space:nowrap;text-decoration:none}
+.head .logo img{height:24px;width:auto;display:block}
+.head .logo span{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);border-left:2px solid var(--border);padding-left:10px}
+.head nav{margin-left:auto;display:flex;gap:2px;align-items:center}
+.head nav a{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--black);padding:8px 10px;border-radius:8px;white-space:nowrap}
+.head nav a:hover,.head nav a.cur{color:var(--red)}
+.head nav a.hubbtn{background:var(--red);color:#fff;margin-left:6px;padding:8px 14px}
+.head nav a.hubbtn:hover{background:var(--red-dark);color:#fff}
+.head .menubtn{display:none;margin-left:auto;background:none;border:1.5px solid var(--border);border-radius:8px;font-size:16px;padding:4px 10px;cursor:pointer;color:var(--black)}
+@media(max-width:1060px){
+  .head .t{display:none}
+  .head .menubtn{display:block}
+  .head nav{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:8px 16px 14px;box-shadow:0 8px 16px rgba(45,42,38,.12)}
+  .head nav.open{display:flex}
+  .head nav a.hubbtn{margin:6px 0 0;text-align:center}
+}
+@media(max-width:420px){.head .logo span{display:none}}
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23D22730%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22Verdana,sans-serif%22 font-size=%2226%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3ECW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="head">
+  <div class="bar">
+    <a class="logo" href="./"><img src="https://emailer.emfluence.com/clients/citywide/uploadedfiles/signature_logo.png" alt="City Wide Facility Solutions" width="172" height="24"><span>of The Triad</span></a>
+    <button class="menubtn" aria-label="Menu" onclick="document.getElementById('mainnav').classList.toggle('open')">&#9776;</button>
+    <nav id="mainnav"><a href="opportunities.html" class="cur">Opportunities</a><a href="new-vendors.html">New Vendors</a><a href="invoice.html">Submit Invoice</a><a href="upload.html">Upload Docs</a><a href="cleaner-roster.html">Crew Changes</a><a class="hubbtn" href="./">Vendor Hub</a></nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="./">Vendor Hub</a> / Open Opportunities</div>
+    <h1>Open Opportunities</h1>
+    <p>New contracts and one-time projects across Greensboro, Winston-Salem and High Point post here as they open. See one that fits your crew? Tell us you're interested and our team will reach out, usually to set up a walkthrough.</p>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="filters" id="filters">
+    <label for="fCity">City</label><select id="fCity"><option value="">All cities</option></select>
+    <label for="fService">Service</label><select id="fService"><option value="">All services</option></select>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="loading" id="loading">Loading open postings&hellip;</div>
+  <div class="list" id="list"></div>
+
+  <div class="empty hidden" id="empty">
+    <h3 id="emptyTitle">No open postings right now</h3>
+    <p id="emptyText">New work posts here as it opens. Make sure we know what your crew does, so you hear about matching work first.</p>
+    <a class="btn solid" href="services.html">Tell us your services</a>
+  </div>
+
+  <div class="tip">
+    <p><b>Not on file with City Wide yet?</b> You can still raise your hand on a posting. To be awarded work you'll need to finish the new vendor steps: paperwork, insurance with workers' comp, and banking.</p>
+    <a class="btn solid" href="new-vendors.html">New vendor checklist</a>
+  </div>
+</main>
+
+<div class="modal hidden" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="mcard">
+    <form id="iform" novalidate>
+      <h2 id="mTitle">I'm interested</h2>
+      <div class="sub" id="mPosting"></div>
+      <div class="row">
+        <div><label class="f">Company Name <span class="req">*</span></label><input id="company"></div>
+        <div><label class="f">Your Name <span class="req">*</span></label><input id="contact"></div>
+        <div><label class="f">Email <span class="req">*</span></label><input id="email" type="email"></div>
+        <div><label class="f">Phone</label><input id="phone" type="tel"></div>
+      </div>
+      <label class="f">Anything we should know?</label>
+      <textarea id="message" placeholder="Crew size, availability, similar buildings you clean..."></textarea>
+      <div class="mact">
+        <button class="btn solid" type="submit" id="sendbtn">Send my interest</button>
+        <button class="btn outline" type="button" id="cancel">Cancel</button>
+        <span class="msg" id="msg"></span>
+      </div>
+    </form>
+    <div class="ok hidden" id="okview">
+      <div class="check">&#10003;</div>
+      <h2>Got it, thanks</h2>
+      <p class="sub" id="okText">Our team will reach out if your crew is a fit. A confirmation is on its way to your email.</p>
+      <button class="btn outline" type="button" id="close">Close</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>CAVU NC LLC dba City Wide Facility Solutions &middot; Vendor Resource Hub</div>
+    <div>Questions about a posting? Call (919) 909-2008</div>
+  </div>
+</footer>
+
+<script>
+var ENDPOINT = "https://script.google.com/macros/s/AKfycby3bAwpQBnvPWilYCO1C1Y1d1lmmYvpPzMLeKby3q3TfYooGTOLChwSm7zQ_0EWygHfiA/exec";
+var opps = [], current = null;
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+function fillSelect(sel, values){
+  values.filter(Boolean).filter(function(v,i,a){ return a.indexOf(v) === i; }).sort().forEach(function(v){ sel.add(new Option(v, v)); });
+}
+function render(){
+  var c = $("fCity").value, s = $("fService").value;
+  var shown = opps.filter(function(o){ return (!c || o.city === c) && (!s || o.service === s); });
+  $("list").innerHTML = shown.map(function(o, i){
+    var idx = opps.indexOf(o);
+    var facts = [["Schedule", o.schedule], ["Approx. size", o.sqft ? Number(String(o.sqft).replace(/,/g,"")).toLocaleString("en-US") + " sq ft" : ""], ["Start", o.start]]
+      .filter(function(f){ return f[1] && f[1] !== "NaN sq ft"; });
+    return '<article class="opp">' +
+      '<div class="tags">' + (o.type ? '<span class="tag type">' + esc(o.type) + '</span>' : '') +
+        (o.city ? '<span class="tag">' + esc(o.city) + '</span>' : '') + (o.service ? '<span class="tag">' + esc(o.service) + '</span>' : '') + '</div>' +
+      '<h3>' + esc(o.title) + '</h3>' +
+      (facts.length ? '<dl>' + facts.map(function(f){ return '<dt>' + f[0] + '</dt><dd>' + esc(f[1]) + '</dd>'; }).join("") + '</dl>' : '') +
+      '<p>' + esc(o.details) + '</p>' +
+      (o.posted ? '<div class="posted">Posted ' + esc(o.posted) + '</div>' : '') +
+      '<button class="btn solid" type="button" data-i="' + idx + '">I\'m interested</button>' +
+    '</article>';
+  }).join("");
+  $("count").textContent = shown.length + " open posting" + (shown.length === 1 ? "" : "s");
+  var none = shown.length === 0;
+  $("empty").classList.toggle("hidden", !none);
+  if(none && opps.length){ $("emptyTitle").textContent = "Nothing open for that filter"; $("emptyText").textContent = "Try another city or service, or check back soon."; }
+  document.querySelectorAll("[data-i]").forEach(function(b){ b.onclick = function(){ openModal(opps[+b.getAttribute("data-i")]); }; });
+}
+
+fetch(ENDPOINT + "?action=opps").then(function(r){ return r.json(); }).then(function(res){
+  $("loading").classList.add("hidden");
+  opps = (res && res.ok && res.opportunities) || [];
+  fillSelect($("fCity"), opps.map(function(o){ return o.city; }));
+  fillSelect($("fService"), opps.map(function(o){ return o.service; }));
+  $("filters").classList.toggle("hidden", !opps.length);
+  render();
+}).catch(function(){
+  $("loading").classList.add("hidden");
+  $("filters").classList.add("hidden");
+  $("empty").classList.remove("hidden");
+  $("emptyTitle").textContent = "We couldn't load the board just now";
+  $("emptyText").textContent = "Please refresh in a minute, or call (919) 909-2008 to ask what's open.";
+});
+$("fCity").onchange = render; $("fService").onchange = render;
+
+/* ---- interest modal ---- */
+function openModal(o){
+  current = o;
+  $("mPosting").textContent = o.title + (o.city ? " · " + o.city : "");
+  $("iform").classList.remove("hidden"); $("okview").classList.add("hidden");
+  $("msg").textContent = "";
+  $("modal").classList.remove("hidden");
+  setTimeout(function(){ $("company").focus(); }, 50);
+}
+function closeModal(){ $("modal").classList.add("hidden"); }
+$("cancel").onclick = closeModal; $("close").onclick = closeModal;
+$("modal").addEventListener("click", function(e){ if(e.target === $("modal")) closeModal(); });
+document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeModal(); });
+document.addEventListener("input", function(e){ if(e.target.classList) e.target.classList.remove("bad"); });
+
+$("iform").addEventListener("submit", function(e){
+  e.preventDefault();
+  var msg = $("msg"); msg.className = "msg err"; msg.textContent = "";
+  var bad = ["company","contact","email"].map($).filter(function(el){ return !el.value.trim(); });
+  if($("email").value.trim() && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($("email").value.trim())) bad.push($("email"));
+  if(bad.length){ bad.forEach(function(el){ el.classList.add("bad"); }); msg.textContent = "Please fill in the highlighted fields."; return; }
+  var btn = $("sendbtn"); btn.disabled = true; btn.textContent = "Sending...";
+  var payload = { formType:"interest", posting: current.title + (current.city ? " (" + current.city + ")" : ""),
+    company:$("company").value.trim(), contact:$("contact").value.trim(), email:$("email").value.trim(),
+    phone:$("phone").value.trim(), message:$("message").value.trim() };
+  fetch(ENDPOINT, {method:"POST", body:JSON.stringify(payload), headers:{"Content-Type":"text/plain;charset=utf-8"}})
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if(!res || !res.ok) throw new Error(res && res.error ? res.error : "Something went wrong.");
+      $("okText").textContent = "Our team will reach out if your crew is a fit for " + current.title + ". A confirmation is on its way to " + payload.email + ".";
+      $("iform").classList.add("hidden"); $("okview").classList.remove("hidden");
+      $("message").value = "";
+    })
+    .catch(function(err){ msg.textContent = "We could not send that (" + err.message + "). Please call (919) 909-2008."; })
+    .then(function(){ btn.disabled = false; btn.textContent = "Send my interest"; });
+});
+</script>
+</body>
+</html>

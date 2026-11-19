@@ -92,13 +92,36 @@ display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
 footer{border-top:1px solid var(--border);padding:22px 0;margin-top:44px;background:#fff}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--grey);max-width:1160px}
 </style>
+<style id="brand">
+.head{background:#fff;position:sticky;top:0;z-index:50;box-shadow:0 1px 8px rgba(45,42,38,.10)}
+.head .bar{max-width:1160px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;gap:14px;position:relative;background:none;border-radius:0;overflow:visible}
+.head .logo{display:flex;align-items:center;gap:10px;white-space:nowrap;text-decoration:none}
+.head .logo img{height:24px;width:auto;display:block}
+.head .logo span{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);border-left:2px solid var(--border);padding-left:10px}
+.head nav{margin-left:auto;display:flex;gap:2px;align-items:center}
+.head nav a{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--black);padding:8px 10px;border-radius:8px;white-space:nowrap}
+.head nav a:hover,.head nav a.cur{color:var(--red)}
+.head nav a.hubbtn{background:var(--red);color:#fff;margin-left:6px;padding:8px 14px}
+.head nav a.hubbtn:hover{background:var(--red-dark);color:#fff}
+.head .menubtn{display:none;margin-left:auto;background:none;border:1.5px solid var(--border);border-radius:8px;font-size:16px;padding:4px 10px;cursor:pointer;color:var(--black)}
+@media(max-width:1060px){
+  .head .t{display:none}
+  .head .menubtn{display:block}
+  .head nav{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:8px 16px 14px;box-shadow:0 8px 16px rgba(45,42,38,.12)}
+  .head nav.open{display:flex}
+  .head nav a.hubbtn{margin:6px 0 0;text-align:center}
+}
+@media(max-width:420px){.head .logo span{display:none}}
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23D22730%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22Verdana,sans-serif%22 font-size=%2226%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3ECW%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
 <header class="head">
   <div class="bar">
-    <a class="logo" href="./">City Wide <b>of The Triad</b></a>
-    <a class="back" href="./">&larr; Vendor Hub</a>
+    <a class="logo" href="./"><img src="https://emailer.emfluence.com/clients/citywide/uploadedfiles/signature_logo.png" alt="City Wide Facility Solutions" width="172" height="24"><span>of The Triad</span></a>
+    <button class="menubtn" aria-label="Menu" onclick="document.getElementById('mainnav').classList.toggle('open')">&#9776;</button>
+    <nav id="mainnav"><a href="opportunities.html">Opportunities</a><a href="new-vendors.html">New Vendors</a><a href="invoice.html">Submit Invoice</a><a href="upload.html" class="cur">Upload Docs</a><a href="cleaner-roster.html">Crew Changes</a><a class="hubbtn" href="./">Vendor Hub</a></nav>
   </div>
 </header>
 

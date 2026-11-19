@@ -117,35 +117,75 @@ display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
 footer{border-top:1px solid var(--border);padding:24px 0;margin-top:48px;background:#fff}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--grey)}
 footer .note{flex-basis:100%;font-size:11px}
+.herogrid{display:grid;grid-template-columns:1.25fr 1fr;gap:30px;align-items:center}
+.photos{position:relative;height:320px}
+.photos img{position:absolute;object-fit:cover;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.35);border:3px solid rgba(255,255,255,.08)}
+.photos .p1{right:0;top:0;width:82%;height:72%}
+.photos .p2{left:0;bottom:0;width:44%;height:52%}
+.photos .wanted{position:absolute;right:10px;bottom:22px;background:var(--red);color:#fff;font-size:11px;font-weight:700;letter-spacing:.12em;
+text-transform:uppercase;padding:9px 14px;border-radius:9px;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+@media(max-width:860px){.herogrid{grid-template-columns:1fr}.photos{display:none}}
+.oppmini{list-style:none;margin:2px 0 6px}
+.oppmini li{border-top:1px solid var(--border);padding:8px 0;font-size:12.8px}
+.oppmini li b{display:block;font-size:13px}
+.oppmini li span{color:var(--grey);font-size:11.5px}
 </style>
+<style id="brand">
+.head{background:#fff;position:sticky;top:0;z-index:50;box-shadow:0 1px 8px rgba(45,42,38,.10)}
+.head .bar{max-width:1160px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;gap:14px;position:relative;background:none;border-radius:0;overflow:visible}
+.head .logo{display:flex;align-items:center;gap:10px;white-space:nowrap;text-decoration:none}
+.head .logo img{height:24px;width:auto;display:block}
+.head .logo span{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);border-left:2px solid var(--border);padding-left:10px}
+.head nav{margin-left:auto;display:flex;gap:2px;align-items:center}
+.head nav a{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--black);padding:8px 10px;border-radius:8px;white-space:nowrap}
+.head nav a:hover,.head nav a.cur{color:var(--red)}
+.head nav a.hubbtn{background:var(--red);color:#fff;margin-left:6px;padding:8px 14px}
+.head nav a.hubbtn:hover{background:var(--red-dark);color:#fff}
+.head .menubtn{display:none;margin-left:auto;background:none;border:1.5px solid var(--border);border-radius:8px;font-size:16px;padding:4px 10px;cursor:pointer;color:var(--black)}
+@media(max-width:1060px){
+  .head .t{display:none}
+  .head .menubtn{display:block}
+  .head nav{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:8px 16px 14px;box-shadow:0 8px 16px rgba(45,42,38,.12)}
+  .head nav.open{display:flex}
+  .head nav a.hubbtn{margin:6px 0 0;text-align:center}
+}
+@media(max-width:420px){.head .logo span{display:none}}
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23D22730%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22Verdana,sans-serif%22 font-size=%2226%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3ECW%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
 <header class="head">
   <div class="bar">
-    <a class="logo" href="#top">City Wide <b>of The Triad</b></a>
-    <span class="t">Vendor Resource Hub</span>
+    <a class="logo" href="#top"><img src="https://emailer.emfluence.com/clients/citywide/uploadedfiles/signature_logo.png" alt="City Wide Facility Solutions" width="172" height="24"><span>of The Triad</span></a>
     <button class="menubtn" aria-label="Menu" onclick="document.getElementById('mainnav').classList.toggle('open')">&#9776;</button>
     <nav id="mainnav">
-      <a href="#opportunities">Opportunities</a>
+      <a href="opportunities.html">Opportunities</a>
       <a href="new-vendors.html">New Vendors</a>
       <a href="#paperwork">Invoices &amp; Paperwork</a>
-      <a href="#guides">Crew Guides</a>
+      <a href="cleaner-roster.html">Crew Changes</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
 <div class="hero" id="top">
-  <div class="wrap">
+  <div class="wrap herogrid">
+    <div>
     <div class="eyebrow">City Wide Facility Solutions</div>
     <h1>The Vendor Resource Hub for <span>The Triad</span></h1>
     <p>Everything your crew needs to work with City Wide in one place: open work, onboarding, invoices, compliance paperwork, and the guides that keep every building on standard.</p>
     <div class="ctas">
-      <a class="btn solid" href="#opportunities">View Open Opportunities</a>
+      <a class="btn solid" href="opportunities.html">View Open Opportunities</a>
       <a class="btn ghost" href="new-vendors.html">New Vendor? Start Here</a>
     </div>
     <div class="cities"><b>Greensboro</b><span class="dot">&bull;</span><b>Winston-Salem</b><span class="dot">&bull;</span><b>High Point</b></div>
+    </div>
+    <div class="photos" aria-hidden="true">
+      <img class="p1" src="https://citywidelv.github.io/cw-vendor-hub/images/crew-office-cart-right.jpg" alt="">
+      <img class="p2" src="https://citywidelv.github.io/cw-vendor-hub/images/crew-portrait-mid.jpg" alt="">
+      <a class="wanted" href="opportunities.html">Crews wanted</a>
+    </div>
   </div>
 </div>
 
@@ -155,7 +195,8 @@ footer .note{flex-basis:100%;font-size:11px}
     <div class="qrow">
       <a class="qbtn primary" data-link="invoice" href="#">Submit an Invoice</a>
       <a class="qbtn" data-link="compliance" href="#">Send Compliance Docs</a>
-      <a class="qbtn" href="#opportunities">Open Opportunities</a>
+      <a class="qbtn" href="opportunities.html">Open Opportunities</a>
+      <a class="qbtn" href="cleaner-roster.html">Add a Cleaner</a>
       <a class="qbtn" href="new-vendors.html">New Vendor Checklist</a>
       <a class="qbtn" href="#contact">Contact Operations</a>
     </div>
@@ -172,17 +213,17 @@ footer .note{flex-basis:100%;font-size:11px}
       <p>New contracts and one-time projects post here when they open. Vendors whose services match a posting hear about it first.</p>
     </div>
     <div class="grid g2">
-      <div class="card">
+      <div class="card live">
         <div class="tag">Live board</div>
-        <h3>Triad Opportunity Board <span class="soon">Coming soon</span></h3>
-        <p>Open janitorial contracts, floor care, day porter, and one-time projects across Greensboro, Winston-Salem and High Point.</p>
-        <a class="go inert" href="#" data-inert>See what is open &rarr;</a>
+        <h3>Triad Opportunity Board</h3>
+        <div id="oppPreview"><p>Open janitorial contracts, floor care, day porter, and one-time projects across Greensboro, Winston-Salem and High Point.</p></div>
+        <a class="btn solid" style="align-self:flex-start" href="opportunities.html" id="oppBtn">See what is open</a>
       </div>
-      <div class="card">
+      <div class="card live">
         <div class="tag">Get notified</div>
-        <h3>Tell Us What Your Crew Does <span class="soon">Coming soon</span></h3>
-        <p>Complete the vendor evaluation once and choose your services. Your services list decides which postings you are sent.</p>
-        <a class="go inert" href="#" data-inert>Complete the evaluation &rarr;</a>
+        <h3>Tell Us What Your Crew Does</h3>
+        <p>Fill out the services form once and choose everything your crew offers. Your services decide which postings you hear about first.</p>
+        <a class="btn outline" style="align-self:flex-start" href="services.html">Tell us your services</a>
       </div>
     </div>
   </section>
@@ -249,9 +290,9 @@ footer .note{flex-basis:100%;font-size:11px}
       </div>
       <div class="card">
         <div class="tag">Your crew</div>
-        <h3>Add or Remove a Cleaner <span class="soon">Coming soon</span></h3>
-        <p>Tell City Wide who your crew is sending into a building, or who is coming off.</p>
-        <a class="go inert" href="#" data-inert>Report a cleaner &rarr;</a>
+        <h3>Add or Remove a Cleaner</h3>
+        <p>Tell City Wide who your crew is sending into a building, or who is coming off. One person can be added to several buildings at once.</p>
+        <a class="go" href="cleaner-roster.html">Report a cleaner &rarr;</a>
       </div>
       <div class="card">
         <div class="tag">Supplies</div>
@@ -336,6 +377,17 @@ document.querySelectorAll("[data-link]").forEach(function(a){
   var url = LINKS[a.getAttribute("data-link")];
   if(url){ a.href = url; }
 });
+/* Live preview of the Opportunities board */
+var OPPS_URL = "https://script.google.com/macros/s/AKfycby3bAwpQBnvPWilYCO1C1Y1d1lmmYvpPzMLeKby3q3TfYooGTOLChwSm7zQ_0EWygHfiA/exec?action=opps";
+fetch(OPPS_URL).then(function(r){ return r.json(); }).then(function(res){
+  var o = (res && res.ok && res.opportunities) || [];
+  if(!o.length) return;
+  var esc = function(x){ return String(x||"").replace(/&/g,"&amp;").replace(/</g,"&lt;"); };
+  document.getElementById("oppPreview").innerHTML = '<ul class="oppmini">' + o.slice(0,3).map(function(p){
+    return '<li><b>' + esc(p.title) + '</b><span>' + esc([p.city, p.service, p.type].filter(Boolean).join(" \u00b7 ")) + '</span></li>';
+  }).join("") + '</ul>';
+  document.getElementById("oppBtn").textContent = "See all " + o.length + " open posting" + (o.length === 1 ? "" : "s");
+}).catch(function(){});
 document.querySelectorAll("[data-inert]").forEach(function(a){
   a.addEventListener("click", function(e){ e.preventDefault(); });
 });

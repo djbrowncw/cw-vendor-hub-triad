@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Add or Remove a Cleaner | City Wide of The Triad</title>
+<style>
+:root{--red:#D22730;--red-dark:#B01F27;--black:#2D2A26;--grey:#636466;--light:#F5F5F5;
+--border:#E5E5E5;--gold:#E5B423;--green:#2E7D4F;
+--shadow:0 1px 3px rgba(45,42,38,.08),0 4px 14px rgba(45,42,38,.06);
+--shadow-lift:0 4px 10px rgba(45,42,38,.10),0 10px 28px rgba(45,42,38,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Verdana,'Liberation Sans','DejaVu Sans',Geneva,Tahoma,sans-serif;
+color:var(--black);background:var(--light);font-size:14px;line-height:1.6}
+a{color:var(--red);text-decoration:none}
+.hidden{display:none !important}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+.hero{color:#fff;background:linear-gradient(180deg,#26231f 0%,var(--black) 75%)}
+.hero .wrap{padding-top:30px;padding-bottom:34px}
+.crumb{font-size:11.5px;color:#bdb9b3}
+.crumb a{color:#fff;font-weight:700}
+.hero h1{font-size:clamp(24px,3.6vw,34px);line-height:1.2;margin-top:8px}
+.hero h1::after{content:"";display:block;width:56px;height:4px;background:var(--red);border-radius:2px;margin-top:11px}
+.hero p{color:#cfcdc9;margin-top:12px;max-width:680px;font-size:13.5px}
+
+.note{background:#fff8e6;border:1px solid #f1dfa6;border-radius:10px;padding:12px 16px;font-size:12.5px;margin-top:22px}
+.panel{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:22px 24px;margin-top:16px}
+.panel h3{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:12px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 16px}
+label.f{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+label.f .req{color:var(--red)}
+input,select,textarea{width:100%;font-family:inherit;font-size:13.5px;border:1.5px solid var(--border);border-radius:9px;padding:9px 11px;background:#fff;color:var(--black);outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--red)}
+textarea{min-height:70px;resize:vertical}
+.hint{font-size:11.5px;color:var(--grey);margin-top:4px}
+.bad{border-color:var(--red) !important;background:#fff6f6}
+
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.opts{grid-template-columns:1fr}}
+.opt{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:16px;text-align:left;cursor:pointer;font-family:inherit;color:inherit}
+.opt:hover{border-color:var(--red)}
+.opt.on{border-color:var(--red);background:#fdf2f2;box-shadow:0 0 0 2px rgba(210,39,48,.15)}
+.opt b{display:block;font-size:14px}
+.opt span{font-size:12px;color:var(--grey)}
+.opts.bad{border:1.5px solid var(--red);border-radius:14px;padding:6px}
+
+.bline{display:flex;gap:8px;margin-top:8px}
+.bline .rm{flex:none;width:40px;background:none;border:1.5px solid var(--border);border-radius:9px;color:var(--grey);font-size:16px;cursor:pointer}
+.bline .rm:hover{border-color:var(--red);color:var(--red)}
+.addline{margin-top:10px;background:none;border:1.5px dashed var(--border);border-radius:9px;padding:9px 14px;font-family:inherit;font-size:12.5px;font-weight:700;color:var(--black);cursor:pointer}
+.addline:hover{border-color:var(--red);color:var(--red)}
+
+.submit{margin-top:20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-block;font-family:inherit;font-size:13px;font-weight:700;border-radius:10px;padding:12px 22px;border:none;cursor:pointer;white-space:nowrap}
+.btn.solid{background:var(--red);color:#fff}
+.btn.solid:hover{background:var(--red-dark)}
+.btn.solid:disabled{opacity:.6;cursor:default}
+.btn.outline{background:#fff;border:1.5px solid var(--border);color:var(--black)}
+.msg{font-size:12.5px;font-weight:700}
+.msg.err{color:var(--red)}
+.done{text-align:center;padding:34px 24px}
+.done .check{width:56px;height:56px;border-radius:50%;background:var(--green);color:#fff;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.done h2{font-size:19px}
+.done p{color:var(--grey);font-size:13px;margin-top:6px}
+
+footer{border-top:1px solid var(--border);padding:22px 0;margin-top:44px;background:#fff}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--grey);max-width:1160px}
+</style>
+<style id="brand">
+.head{background:#fff;position:sticky;top:0;z-index:50;box-shadow:0 1px 8px rgba(45,42,38,.10)}
+.head .bar{max-width:1160px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;gap:14px;position:relative;background:none;border-radius:0;overflow:visible}
+.head .logo{display:flex;align-items:center;gap:10px;white-space:nowrap;text-decoration:none}
+.head .logo img{height:24px;width:auto;display:block}
+.head .logo span{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);border-left:2px solid var(--border);padding-left:10px}
+.head nav{margin-left:auto;display:flex;gap:2px;align-items:center}
+.head nav a{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--black);padding:8px 10px;border-radius:8px;white-space:nowrap}
+.head nav a:hover,.head nav a.cur{color:var(--red)}
+.head nav a.hubbtn{background:var(--red);color:#fff;margin-left:6px;padding:8px 14px}
+.head nav a.hubbtn:hover{background:var(--red-dark);color:#fff}
+.head .menubtn{display:none;margin-left:auto;background:none;border:1.5px solid var(--border);border-radius:8px;font-size:16px;padding:4px 10px;cursor:pointer;color:var(--black)}
+@media(max-width:1060px){
+  .head .t{display:none}
+  .head .menubtn{display:block}
+  .head nav{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:8px 16px 14px;box-shadow:0 8px 16px rgba(45,42,38,.12)}
+  .head nav.open{display:flex}
+  .head nav a.hubbtn{margin:6px 0 0;text-align:center}
+}
+@media(max-width:420px){.head .logo span{display:none}}
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23D22730%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22Verdana,sans-serif%22 font-size=%2226%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3ECW%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="head">
+  <div class="bar">
+    <a class="logo" href="./"><img src="https://emailer.emfluence.com/clients/citywide/uploadedfiles/signature_logo.png" alt="City Wide Facility Solutions" width="172" height="24"><span>of The Triad</span></a>
+    <button class="menubtn" aria-label="Menu" onclick="document.getElementById('mainnav').classList.toggle('open')">&#9776;</button>
+    <nav id="mainnav"><a href="opportunities.html">Opportunities</a><a href="new-vendors.html">New Vendors</a><a href="invoice.html">Submit Invoice</a><a href="upload.html">Upload Docs</a><a href="cleaner-roster.html" class="cur">Crew Changes</a><a class="hubbtn" href="./">Vendor Hub</a></nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="./">Vendor Hub</a> / Add or Remove a Cleaner</div>
+    <h1>Add or Remove a Cleaner</h1>
+    <p>Tell City Wide who your crew is sending into a building, or who is coming off. One person can be added to or removed from several buildings at once. Send one form per person.</p>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="note"><b>Adding someone new?</b> Janitorial crew members need a background check on file before their first shift in a City Wide building. If they don't have one yet, we'll send you the steps.</div>
+
+  <form id="cform" novalidate>
+    <div class="panel">
+      <h3>What's changing? <span style="color:var(--red)">*</span></h3>
+      <div class="opts" id="actions">
+        <button type="button" class="opt" data-val="Add"><b>Add a cleaner</b><span>Someone new is starting in one or more buildings.</span></button>
+        <button type="button" class="opt" data-val="Remove"><b>Remove a cleaner</b><span>Someone is no longer working in one or more buildings.</span></button>
+      </div>
+    </div>
+
+    <div class="panel hidden" id="details">
+      <h3>The cleaner</h3>
+      <div class="row">
+        <div><label class="f">First Name <span class="req">*</span></label><input id="cFirst"></div>
+        <div><label class="f">Last Name <span class="req">*</span></label><input id="cLast"></div>
+        <div><label class="f" id="effLabel">Start Date</label><input id="effective" type="date"></div>
+        <div id="bgWrap"><label class="f">Background Check <span class="req">*</span></label>
+          <select id="bgCheck"><option value="">Select</option><option>Already cleared with City Wide</option><option>Needs a background check</option><option>Not sure</option></select></div>
+      </div>
+
+      <h3 style="margin-top:20px" id="bLabel">Building(s)</h3>
+      <div id="blist"></div>
+      <button class="addline" type="button" id="addB">+ Add another building</button>
+      <p class="hint">Use the building name or address the way your City Wide manager knows it.</p>
+    </div>
+
+    <div class="panel hidden" id="you">
+      <h3>Your Company</h3>
+      <div class="row">
+        <div><label class="f">Company Name <span class="req">*</span></label><input id="company"></div>
+        <div><label class="f">Your Name <span class="req">*</span></label><input id="contact"></div>
+        <div><label class="f">Email <span class="req">*</span></label><input id="email" type="email"><div class="hint">Your confirmation goes here.</div></div>
+        <div><label class="f">Phone</label><input id="phone" type="tel"></div>
+      </div>
+      <div style="margin-top:12px"><label class="f">Notes</label><textarea id="notes" placeholder="Shift, keys or badge to return, anything we should know..."></textarea></div>
+
+      <div class="submit">
+        <button class="btn solid" type="submit" id="sendbtn">Send to City Wide</button>
+        <span class="msg" id="msg"></span>
+      </div>
+    </div>
+  </form>
+
+  <div id="doneview" class="hidden">
+    <div class="panel done">
+      <div class="check">&#10003;</div>
+      <h2>Crew change received</h2>
+      <p id="donetext">City Wide has your request, and a confirmation is on its way to your email.</p>
+      <div class="submit" style="justify-content:center">
+        <a class="btn outline" href="./">Back to the Vendor Hub</a>
+        <button class="btn solid" type="button" onclick="location.reload()">Send another</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>CAVU NC LLC dba City Wide Facility Solutions &middot; Vendor Resource Hub</div>
+    <div>Questions? (919) 909-2008</div>
+  </div>
+</footer>
+
+<script>
+var ENDPOINT = "https://script.google.com/macros/s/AKfycby3bAwpQBnvPWilYCO1C1Y1d1lmmYvpPzMLeKby3q3TfYooGTOLChwSm7zQ_0EWygHfiA/exec";
+var action = "";
+function $(id){ return document.getElementById(id); }
+
+document.querySelectorAll("#actions .opt").forEach(function(b){
+  b.addEventListener("click", function(){
+    document.querySelectorAll("#actions .opt").forEach(function(x){ x.classList.remove("on"); });
+    b.classList.add("on"); $("actions").classList.remove("bad");
+    action = b.getAttribute("data-val");
+    $("details").classList.remove("hidden"); $("you").classList.remove("hidden");
+    $("bgWrap").classList.toggle("hidden", action !== "Add");
+    $("effLabel").textContent = action === "Add" ? "Start Date" : "Last Day";
+    $("bLabel").textContent = action === "Add" ? "Adding them to" : "Removing them from";
+    $("sendbtn").textContent = action === "Add" ? "Send: Add Cleaner" : "Send: Remove Cleaner";
+  });
+});
+
+function addBuilding(){
+  var d = document.createElement("div"); d.className = "bline";
+  d.innerHTML = '<input class="bname" placeholder="Building name or address"><button type="button" class="rm" title="Remove">&times;</button>';
+  d.querySelector(".rm").onclick = function(){ if(document.querySelectorAll(".bline").length > 1) d.remove(); };
+  $("blist").appendChild(d);
+}
+addBuilding();
+$("addB").onclick = addBuilding;
+document.addEventListener("input", function(e){ if(e.target.classList) e.target.classList.remove("bad"); });
+
+$("cform").addEventListener("submit", function(e){
+  e.preventDefault();
+  var msg = $("msg"); msg.className = "msg err"; msg.textContent = "";
+  if(!action){ $("actions").classList.add("bad"); return; }
+  var req = ["cFirst","cLast","company","contact","email"];
+  if(action === "Add") req.push("bgCheck");
+  var bad = req.map($).filter(function(el){ return !el.value.trim(); });
+  if($("email").value.trim() && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($("email").value.trim())) bad.push($("email"));
+  var buildings = Array.prototype.map.call(document.querySelectorAll(".bname"), function(i){ return i.value.trim(); }).filter(Boolean);
+  if(!buildings.length) bad.push(document.querySelector(".bname"));
+  if(bad.length){
+    bad.forEach(function(el){ el.classList.add("bad"); });
+    msg.textContent = "Please fill in the highlighted fields.";
+    bad[0].scrollIntoView({behavior:"smooth", block:"center"});
+    return;
+  }
+  var payload = { formType:"cleaner", action:action, cleaner:$("cFirst").value.trim() + " " + $("cLast").value.trim(),
+    buildings:buildings, effective:$("effective").value, bgCheck: action === "Add" ? $("bgCheck").value : "",
+    company:$("company").value.trim(), contact:$("contact").value.trim(), email:$("email").value.trim(),
+    phone:$("phone").value.trim(), notes:$("notes").value.trim() };
+  var btn = $("sendbtn"), label = btn.textContent; btn.disabled = true; btn.textContent = "Sending...";
+  fetch(ENDPOINT, {method:"POST", body:JSON.stringify(payload), headers:{"Content-Type":"text/plain;charset=utf-8"}})
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if(!res || !res.ok) throw new Error(res && res.error ? res.error : "Something went wrong.");
+      $("donetext").textContent = "City Wide has your request to " + action.toLowerCase() + " " + payload.cleaner + " (" +
+        buildings.length + " building" + (buildings.length > 1 ? "s" : "") + "). A confirmation is on its way to " + payload.email + ".";
+      $("cform").classList.add("hidden"); document.querySelector(".note").classList.add("hidden");
+      $("doneview").classList.remove("hidden"); window.scrollTo({top:0, behavior:"smooth"});
+    })
+    .catch(function(err){
+      btn.disabled = false; btn.textContent = label;
+      msg.textContent = "We could not send that (" + err.message + "). Please try again, or email meganne.amaro@gocitywide.com.";
+    });
+});
+</script>
+</body>
+</html>

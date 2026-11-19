@@ -74,7 +74,7 @@ section{padding:46px 0 0;scroll-margin-top:70px}
 .progress .lbl{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--grey)}
 .pbar{height:8px;background:var(--light);border-radius:6px;margin-top:8px;overflow:hidden}
 .pbar i{display:block;height:100%;width:0;background:var(--green);transition:width .3s}
-.stepnav{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+.stepnav{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px}
 @media(max-width:700px){.stepnav{grid-template-columns:1fr 1fr}}
 .stepnav a{border:1.5px solid var(--border);border-radius:10px;padding:8px 10px;color:var(--black);font-size:11.5px;line-height:1.35}
 .stepnav a b{display:block;font-size:12.5px}
@@ -181,6 +181,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;f
         <li><b>Workers' compensation, even if it's just you.</b> North Carolina only requires it at three or more employees, but City Wide requires it for every subcontractor regardless of size.</li>
         <li><b>A W-9</b> in your exact business name.</li>
         <li><b>Any license your trade requires</b> in North Carolina.</li>
+        <li><b>Janitorial crews: a background check</b> on each person who will work inside a client building.</li>
       </ul>
     </div>
   </section>
@@ -196,11 +197,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;f
   </section>
 
   <section id="steps">
-    <div class="shead"><div class="kick">Get on file</div><h2>Five steps, in order, at your pace</h2>
+    <div class="shead"><div class="kick">Get on file</div><h2>Six steps, in order, at your pace</h2>
       <p>Work top to bottom or jump to where you left off. Mark each step done and this page remembers your progress on this device.</p></div>
 
     <div class="progress">
-      <div class="lbl">YOUR PROGRESS: <span id="pcount">0</span> OF 5 STEPS DONE</div>
+      <div class="lbl">YOUR PROGRESS: <span id="pcount">0</span> OF 6 STEPS DONE</div>
       <div class="pbar"><i id="pbar"></i></div>
       <div class="stepnav" id="stepnav">
         <a href="#s1" data-s="1"><b>Services</b>5 minutes</a>
@@ -208,6 +209,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;f
         <a href="#s3" data-s="3"><b>Vendor Packet</b>sign &amp; return</a>
         <a href="#s4" data-s="4"><b>Insurance</b>GL + workers' comp</a>
         <a href="#s5" data-s="5"><b>W-9 &amp; Banking</b>direct deposit</a>
+        <a href="#s6" data-s="6"><b>Background Check</b>janitorial only</a>
       </div>
     </div>
 
@@ -216,7 +218,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;f
       <div class="sbody">
         <p>Tell us every service your crew offers: janitorial, floor care, day porter, windows, landscaping, pressure washing, the trades, and more. When work opens that matches what you do, you hear from us first.</p>
         <div class="acts">
-          <a class="btn outline" href="mailto:nccompliance@gocitywide.com?subject=New%20Vendor%20-%20Services%20We%20Offer&body=Company%20name%3A%0AContact%20name%3A%0APhone%3A%0ACities%20we%20cover%20(Greensboro%2C%20Winston-Salem%2C%20High%20Point%2C%20other)%3A%0AServices%20we%20offer%3A%0ACrew%20size%3A%0A">Email us your services</a>
+          <a class="btn outline" href="mailto:meganne.amaro@gocitywide.com?subject=New%20Vendor%20-%20Services%20We%20Offer&body=Company%20name%3A%0AContact%20name%3A%0APhone%3A%0ACities%20we%20cover%20(Greensboro%2C%20Winston-Salem%2C%20High%20Point%2C%20other)%3A%0AServices%20we%20offer%3A%0ACrew%20size%3A%0A">Email us your services</a>
           <span class="soon">Online form coming soon</span>
         </div>
         <div class="acts" style="margin-top:12px"><button class="btn outline" type="button" data-mark="1">Mark Step 1 Done</button><span class="when">Done when you have sent us your services.</span></div>
@@ -239,7 +241,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;f
       <div class="sbody">
         <p>The vendor packet is the agreement between your company and City Wide. It also spells out how a missed service is handled and what you are agreeing to. Read it before you sign. We would rather you know now than be surprised later.</p>
         <div class="acts">
-          <a class="btn outline" href="mailto:nccompliance@gocitywide.com?subject=Vendor%20Packet%20Request&body=Please%20send%20the%20vendor%20packet%20for%3A%0ACompany%20name%3A%0AContact%20name%3A%0APhone%3A%0A">Request the packet</a>
+          <a class="btn outline" href="mailto:meganne.amaro@gocitywide.com?subject=Vendor%20Packet%20Request&body=Please%20send%20the%20vendor%20packet%20for%3A%0ACompany%20name%3A%0AContact%20name%3A%0APhone%3A%0A">Request the packet</a>
           <a class="btn outline" href="upload.html">Send back the signed packet</a>
         </div>
         <p class="when" style="margin-top:8px">Sending it back? On the upload page choose <b>Something Else</b> and attach the signed pages.</p>
@@ -268,6 +270,17 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;f
         </ul>
         <div class="acts"><a class="btn solid" href="upload.html">Upload your W-9 &amp; banking</a></div>
         <div class="acts" style="margin-top:12px"><button class="btn outline" type="button" data-mark="5">Mark Step 5 Done</button><span class="when">Done when both are uploaded.</span></div>
+      </div>
+    </details>
+    <details class="step" id="s6" data-s="6">
+      <summary><span class="n">6</span><div><h3>Doing Janitorial? One More Item</h3><small>Background check &middot; janitorial crews only</small></div><span class="car">&#9660;</span></summary>
+      <div class="sbody">
+        <p>Janitorial crews hold keys and clean client buildings, often after hours and alone, so a background check must be on file for <b>every person</b> on your crew before their first shift in a City Wide building. Adding someone new later? They need a check before they start too.</p>
+        <p>Send us the full legal name of each crew member and we will send you the steps to complete the check.</p>
+        <div class="acts">
+          <a class="btn solid" href="mailto:meganne.amaro@gocitywide.com?subject=Background%20Check%20Request&body=Company%20name%3A%0AContact%20name%3A%0APhone%3A%0A%0ACrew%20members%20needing%20a%20background%20check%20(full%20legal%20name%2C%20one%20per%20line)%3A%0A">Start the background check</a>
+        </div>
+        <div class="acts" style="margin-top:12px"><button class="btn outline" type="button" data-mark="6">Mark Step 6 Done</button><span class="when">Not doing janitorial? Mark it done and you are finished.</span></div>
       </div>
     </details>
   </section>
@@ -300,13 +313,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;f
 
 <script>
 var KEY = "cwtriad_onboarding_steps";
+var TOTAL = 6;
 function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } }
 function save(s){ try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){} }
 var done = load();
 
 function render(){
   var n = 0;
-  for(var i = 1; i <= 5; i++){
+  for(var i = 1; i <= TOTAL; i++){
     var on = !!done[i]; if(on) n++;
     document.querySelector('details.step[data-s="'+i+'"]').classList.toggle("isdone", on);
     document.querySelector('#stepnav a[data-s="'+i+'"]').classList.toggle("on", on);
@@ -315,7 +329,7 @@ function render(){
     b.className = on ? "btn done" : "btn outline";
   }
   document.getElementById("pcount").textContent = n;
-  document.getElementById("pbar").style.width = (n * 20) + "%";
+  document.getElementById("pbar").style.width = Math.round(n / TOTAL * 100) + "%";
 }
 document.querySelectorAll("[data-mark]").forEach(function(b){
   b.addEventListener("click", function(){
@@ -333,7 +347,7 @@ document.querySelectorAll("#stepnav a").forEach(function(a){
 });
 /* open the first unfinished step */
 (function(){
-  for(var i = 1; i <= 5; i++){ if(!done[i]){ document.querySelectorAll("details.step").forEach(function(d){ d.open = false; }); document.querySelector('details.step[data-s="'+i+'"]').open = true; break; } }
+  for(var i = 1; i <= TOTAL; i++){ if(!done[i]){ document.querySelectorAll("details.step").forEach(function(d){ d.open = false; }); document.querySelector('details.step[data-s="'+i+'"]').open = true; break; } }
 })();
 render();
 </script>

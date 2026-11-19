@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Upload Insurance &amp; Compliance Documents | City Wide of The Triad</title>
+<style>
+:root{--red:#D22730;--red-dark:#B01F27;--black:#2D2A26;--grey:#636466;--light:#F5F5F5;
+--border:#E5E5E5;--gold:#E5B423;--green:#2E7D4F;
+--shadow:0 1px 3px rgba(45,42,38,.08),0 4px 14px rgba(45,42,38,.06);
+--shadow-lift:0 4px 10px rgba(45,42,38,.10),0 10px 28px rgba(45,42,38,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Verdana,'Liberation Sans','DejaVu Sans',Geneva,Tahoma,sans-serif;
+color:var(--black);background:var(--light);font-size:14px;line-height:1.6}
+a{color:var(--red);text-decoration:none}
+.hidden{display:none !important}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+.head{background:#fff;position:sticky;top:0;z-index:50;box-shadow:0 1px 8px rgba(45,42,38,.10)}
+.head .bar{max-width:1160px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;gap:14px}
+.logo{font-weight:700;font-size:17px;white-space:nowrap;color:var(--black)}
+.logo b{color:var(--red)}
+.head .back{margin-left:auto;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+color:var(--black);border:1.5px solid var(--border);border-radius:8px;padding:7px 12px;white-space:nowrap}
+.head .back:hover{border-color:var(--red);color:var(--red)}
+
+.hero{color:#fff;background:linear-gradient(180deg,#26231f 0%,var(--black) 75%)}
+.hero .wrap{padding-top:30px;padding-bottom:34px}
+.crumb{font-size:11.5px;color:#bdb9b3}
+.crumb a{color:#fff;font-weight:700}
+.hero h1{font-size:clamp(24px,3.6vw,34px);line-height:1.2;margin-top:8px}
+.hero h1::after{content:"";display:block;width:56px;height:4px;background:var(--red);border-radius:2px;margin-top:11px}
+.hero p{color:#cfcdc9;margin-top:12px;max-width:680px;font-size:13.5px}
+
+.note{background:#fff8e6;border:1px solid #f1dfa6;border-radius:10px;padding:12px 16px;font-size:12.5px;margin-top:22px}
+.note .holder{display:block;margin-top:6px;font-weight:700;background:#fff;border:1px dashed #e2c76f;border-radius:8px;padding:8px 12px;font-size:12.5px}
+
+.panel{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:22px 24px;margin-top:16px}
+.step{font-size:10.5px;font-weight:700;letter-spacing:.16em;color:var(--grey)}
+.panel h2{font-size:17px;margin:2px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--red)}
+.panel h3{font-size:14px;margin:18px 0 10px}
+
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.opt{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:16px;text-align:left;cursor:pointer;
+font-family:inherit;color:inherit;display:flex;flex-direction:column;gap:4px}
+.opt:hover{border-color:var(--red)}
+.opt.on{border-color:var(--red);background:#fdf2f2;box-shadow:0 0 0 2px rgba(210,39,48,.15)}
+.opt .ic{font-size:18px;color:var(--red)}
+.opt b{font-size:13.5px}
+.opt span{font-size:12px;color:var(--grey)}
+
+.summary{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.summary span{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--black);color:#fff;
+border-radius:20px;padding:4px 10px}
+
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 16px}
+label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}
+label .req{color:var(--red)}
+input,textarea{width:100%;font-family:inherit;font-size:13.5px;border:1.5px solid var(--border);border-radius:9px;
+padding:9px 11px;background:#fff;color:var(--black);outline:none}
+input:focus,textarea:focus{border-color:var(--red)}
+textarea{min-height:80px;resize:vertical}
+.hint{font-size:11.5px;color:var(--grey);margin-top:4px}
+.bad{border-color:var(--red) !important;background:#fff6f6}
+
+.drop{border:2px dashed var(--border);border-radius:12px;padding:22px;text-align:center;cursor:pointer;background:var(--light)}
+.drop:hover,.drop.over{border-color:var(--red);background:#fdf2f2}
+.drop b{color:var(--red)}
+.files{list-style:none;margin-top:10px}
+.files li{display:flex;align-items:center;gap:10px;border:1px solid var(--border);border-radius:9px;padding:8px 12px;margin-top:6px;font-size:12.5px}
+.files li .sz{color:var(--grey);margin-left:auto}
+.files li button{background:none;border:none;color:var(--grey);font-size:16px;cursor:pointer}
+.files li button:hover{color:var(--red)}
+
+.submit{margin-top:20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-block;font-family:inherit;font-size:13px;font-weight:700;border-radius:10px;padding:12px 22px;
+border:none;cursor:pointer;white-space:nowrap}
+.btn.solid{background:var(--red);color:#fff}
+.btn.solid:hover{background:var(--red-dark)}
+.btn.solid:disabled{opacity:.6;cursor:default}
+.btn.outline{background:#fff;border:1.5px solid var(--border);color:var(--black)}
+.msg{font-size:12.5px;font-weight:700}
+.msg.err{color:var(--red)}
+.goes{font-size:11.5px;color:var(--grey);margin-top:10px}
+
+.done{text-align:center;padding:34px 24px}
+.done .check{width:56px;height:56px;border-radius:50%;background:var(--green);color:#fff;font-size:28px;
+display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.done h2{border:none;font-size:19px}
+.done p{color:var(--grey);font-size:13px}
+
+footer{border-top:1px solid var(--border);padding:22px 0;margin-top:44px;background:#fff}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--grey);max-width:1160px}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div class="bar">
+    <a class="logo" href="./">City Wide <b>of The Triad</b></a>
+    <a class="back" href="./">&larr; Vendor Hub</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="./">Vendor Hub</a> / Upload Documents</div>
+    <h1>Upload Insurance &amp; Compliance Documents</h1>
+    <p>Certificate of insurance (new or a renewal), W-9, or a voided check or bank letter for direct deposit: send it here and it goes straight to the City Wide of The Triad compliance team. Vendors and insurance agents both welcome. You get a confirmation email for your records.</p>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="note">
+    <b>Sending a certificate of insurance?</b> The certificate holder must read exactly:
+    <span class="holder">CAVU NC LLC dba City Wide Facility Solutions<br>2300 W Meadowview Road, Suite 107/109, Greensboro, NC 27407</span>
+    City Wide requires workers' compensation for every subcontractor, even a one-person crew.
+  </div>
+
+  <div id="flow">
+    <!-- STEP 1 -->
+    <div class="panel">
+      <div class="step">STEP 1 OF 3</div>
+      <h2>What are you uploading?</h2>
+      <div class="opts" data-group="docType">
+        <button type="button" class="opt" data-val="Certificate of Insurance"><span class="ic">&#9878;</span><b>Certificate of Insurance</b><span>General liability, workers' comp, or both. New or an annual renewal.</span></button>
+        <button type="button" class="opt" data-val="W-9"><span class="ic">&#128196;</span><b>W-9</b><span>Your signed IRS Form W-9.</span></button>
+        <button type="button" class="opt" data-val="Voided Check / Bank Letter"><span class="ic">&#128179;</span><b>Voided Check / Bank Letter</b><span>For direct deposit setup.</span></button>
+        <button type="button" class="opt" data-val="Other Document"><span class="ic">&#128206;</span><b>Something Else</b><span>Signed vendor packet or another document compliance asked for.</span></button>
+      </div>
+
+      <div id="coverageWrap" class="hidden">
+        <h3>What coverage does it show?</h3>
+        <div class="opts" data-group="coverage">
+          <button type="button" class="opt" data-val="General Liability"><b>General Liability</b><span>GL coverage only.</span></button>
+          <button type="button" class="opt" data-val="Workers' Comp"><b>Workers' Comp</b><span>Workers' compensation only.</span></button>
+          <button type="button" class="opt" data-val="Both GL and Workers' Comp"><b>Both</b><span>One certificate with both, or both certificates attached.</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="panel hidden" id="step2">
+      <div class="step">STEP 2 OF 3</div>
+      <h2>Who is sending this?</h2>
+      <div class="opts" data-group="sender">
+        <button type="button" class="opt" data-val="Vendor"><b>I'm with the vendor company</b><span>You own or work for the company doing work with City Wide.</span></button>
+        <button type="button" class="opt" data-val="Insurance Agent"><b>I'm the insurance agent or broker</b><span>You're sending this on behalf of your client, the vendor.</span></button>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <form class="panel hidden" id="step3" novalidate>
+      <div class="step">STEP 3 OF 3</div>
+      <h2>Your details &amp; the document</h2>
+      <div class="summary" id="summary"></div>
+
+      <div class="row">
+        <div><label>First Name <span class="req">*</span></label><input id="first"></div>
+        <div><label>Last Name <span class="req">*</span></label><input id="last"></div>
+        <div><label>Vendor Company Name <span class="req">*</span></label><input id="company"></div>
+        <div id="agencyWrap" class="hidden"><label>Agency Name <span class="req">*</span></label><input id="agency"></div>
+        <div><label>Email <span class="req">*</span></label><input id="email" type="email"><div class="hint">Your confirmation goes here.</div></div>
+        <div><label>Phone</label><input id="phone" type="tel"></div>
+        <div id="expWrap" class="hidden"><label>Policy Expiration Date</label><input id="expires" type="date"><div class="hint">Helps us remind you before it lapses.</div></div>
+      </div>
+      <p class="hint">We only use your contact details if the compliance team has a question about your document.</p>
+
+      <h3 id="fileLabel">The document</h3>
+      <div class="drop" id="drop"><b>Click here to choose your file</b> or drag it in<br>
+        <span class="hint">PDF or a clear photo (JPG, PNG) &middot; up to 4 files &middot; 15 MB total</span></div>
+      <input id="fileInput" type="file" accept="application/pdf,image/jpeg,image/png" multiple class="hidden">
+      <ul class="files" id="fileList"></ul>
+
+      <h3>Anything else?</h3>
+      <label>Comments</label><textarea id="comments"></textarea>
+
+      <div class="submit">
+        <button class="btn solid" type="submit" id="sendbtn">Send to City Wide Compliance</button>
+        <span id="msg" class="msg"></span>
+      </div>
+      <p class="goes">Goes to: City Wide of The Triad Compliance (nccompliance@gocitywide.com)</p>
+    </form>
+  </div>
+
+  <div id="doneview" class="hidden">
+    <div class="panel done">
+      <div class="check">&#10003;</div>
+      <h2>Document received</h2>
+      <p id="donetext">The compliance team has your document, and a confirmation is on its way to your email.</p>
+      <div class="submit" style="justify-content:center">
+        <a class="btn outline" href="./">Back to the Vendor Hub</a>
+        <button class="btn solid" type="button" onclick="location.reload()">Send another</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>CAVU NC LLC dba City Wide Facility Solutions &middot; Vendor Resource Hub</div>
+    <div>Compliance questions? <a href="mailto:nccompliance@gocitywide.com">nccompliance@gocitywide.com</a> &middot; (919) 909-2008</div>
+  </div>
+</footer>
+
+<script>
+/* Same Apps Script web app as the invoice form (it routes by formType). */
+var ENDPOINT = "https://script.google.com/macros/s/AKfycby3bAwpQBnvPWilYCO1C1Y1d1lmmYvpPzMLeKby3q3TfYooGTOLChwSm7zQ_0EWygHfiA/exec";
+var COMPLIANCE_EMAIL = "nccompliance@gocitywide.com";
+var MAX_FILES = 4, MAX_TOTAL = 15 * 1024 * 1024;
+
+var state = { docType:"", coverage:"", sender:"" };
+var files = [];
+
+function $(id){ return document.getElementById(id); }
+
+document.querySelectorAll(".opts").forEach(function(g){
+  var key = g.getAttribute("data-group");
+  g.querySelectorAll(".opt").forEach(function(b){
+    b.addEventListener("click", function(){
+      g.querySelectorAll(".opt").forEach(function(x){ x.classList.remove("on"); });
+      b.classList.add("on");
+      state[key] = b.getAttribute("data-val");
+      if(key === "docType"){
+        state.coverage = "";
+        document.querySelectorAll('[data-group="coverage"] .opt').forEach(function(x){ x.classList.remove("on"); });
+      }
+      refresh();
+    });
+  });
+});
+
+function refresh(){
+  var isCOI = state.docType === "Certificate of Insurance";
+  $("coverageWrap").classList.toggle("hidden", !isCOI);
+  var step1Done = state.docType && (!isCOI || state.coverage);
+  $("step2").classList.toggle("hidden", !step1Done);
+  var ready = step1Done && state.sender;
+  $("step3").classList.toggle("hidden", !ready);
+  $("agencyWrap").classList.toggle("hidden", state.sender !== "Insurance Agent");
+  $("expWrap").classList.toggle("hidden", !isCOI);
+  $("fileLabel").textContent = isCOI ? "The certificate" : "The document";
+  var tags = [state.docType, isCOI ? state.coverage : "", state.sender === "Insurance Agent" ? "Sent by agent" : (state.sender ? "Sent by vendor" : "")];
+  $("summary").innerHTML = tags.filter(Boolean).map(function(t){ return "<span>" + t.replace(/</g,"&lt;") + "</span>"; }).join("");
+  if(ready && !refresh.scrolled){ refresh.scrolled = true; $("step3").scrollIntoView({behavior:"smooth", block:"start"}); }
+}
+
+/* ---- files ---- */
+function fmt(n){ return n > 1048576 ? (n/1048576).toFixed(1) + " MB" : Math.max(1, Math.round(n/1024)) + " KB"; }
+function addFiles(list){
+  var msg = $("msg"); msg.className = "msg err"; msg.textContent = "";
+  Array.prototype.forEach.call(list, function(f){
+    if(!/^(application\/pdf|image\/jpeg|image\/png)$/.test(f.type)){ msg.textContent = f.name + " is not a PDF, JPG or PNG."; return; }
+    if(files.length >= MAX_FILES){ msg.textContent = "You can attach up to " + MAX_FILES + " files."; return; }
+    var total = files.reduce(function(s,x){ return s + x.size; }, 0) + f.size;
+    if(total > MAX_TOTAL){ msg.textContent = "Files are over 15 MB total. Try a smaller scan or send them in two batches."; return; }
+    files.push(f);
+  });
+  renderFiles();
+}
+function renderFiles(){
+  var ul = $("fileList"); ul.innerHTML = "";
+  files.forEach(function(f, i){
+    var li = document.createElement("li");
+    li.innerHTML = "<span></span><span class='sz'>" + fmt(f.size) + "</span><button type='button' title='Remove'>&times;</button>";
+    li.firstChild.textContent = f.name;
+    li.querySelector("button").onclick = function(){ files.splice(i,1); renderFiles(); };
+    ul.appendChild(li);
+  });
+  $("drop").classList.remove("bad");
+}
+$("drop").addEventListener("click", function(){ $("fileInput").click(); });
+$("fileInput").addEventListener("change", function(e){ addFiles(e.target.files); e.target.value = ""; });
+["dragenter","dragover"].forEach(function(ev){ $("drop").addEventListener(ev, function(e){ e.preventDefault(); $("drop").classList.add("over"); }); });
+["dragleave","drop"].forEach(function(ev){ $("drop").addEventListener(ev, function(e){ e.preventDefault(); $("drop").classList.remove("over"); }); });
+$("drop").addEventListener("drop", function(e){ addFiles(e.dataTransfer.files); });
+
+function readB64(f){
+  return new Promise(function(res, rej){
+    var r = new FileReader();
+    r.onload = function(){ res({ name:f.name, type:f.type, data:String(r.result).split(",")[1] }); };
+    r.onerror = function(){ rej(new Error("Could not read " + f.name)); };
+    r.readAsDataURL(f);
+  });
+}
+
+/* ---- submit ---- */
+$("step3").addEventListener("submit", function(e){
+  e.preventDefault();
+  var msg = $("msg"); msg.className = "msg err"; msg.textContent = "";
+  document.querySelectorAll(".bad").forEach(function(el){ el.classList.remove("bad"); });
+
+  var req = ["first","last","company","email"];
+  if(state.sender === "Insurance Agent") req.push("agency");
+  var bad = req.map($).filter(function(el){ return !el.value.trim(); });
+  var em = $("email");
+  if(em.value.trim() && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())) bad.push(em);
+  if(!files.length) bad.push($("drop"));
+  if(bad.length){
+    bad.forEach(function(el){ el.classList.add("bad"); });
+    msg.textContent = files.length ? "Please fill in the highlighted fields." : "Please fill in the highlighted fields and attach your file.";
+    return;
+  }
+
+  var btn = $("sendbtn");
+  btn.disabled = true; btn.textContent = "Sending...";
+  msg.className = "msg"; msg.textContent = "Uploading. Larger files can take up to a minute.";
+
+  Promise.all(files.map(readB64)).then(function(encoded){
+    var payload = {
+      formType: "compliance",
+      docType: state.docType, coverage: state.coverage, sender: state.sender,
+      first: $("first").value.trim(), last: $("last").value.trim(),
+      company: $("company").value.trim(), agency: $("agency").value.trim(),
+      email: $("email").value.trim(), phone: $("phone").value.trim(),
+      expires: $("expires").value, comments: $("comments").value.trim(),
+      files: encoded
+    };
+    return fetch(ENDPOINT, {method:"POST", body: JSON.stringify(payload), headers:{"Content-Type":"text/plain;charset=utf-8"}});
+  }).then(function(r){ return r.json(); })
+  .then(function(res){
+    if(!res || !res.ok) throw new Error(res && res.error ? res.error : "Something went wrong.");
+    $("donetext").textContent = "The compliance team has your " + state.docType.toLowerCase().replace("w-9","W-9") +
+      " for " + $("company").value.trim() + ". A confirmation is on its way to " + $("email").value.trim() + ".";
+    $("flow").classList.add("hidden");
+    document.querySelector(".note").classList.add("hidden");
+    $("doneview").classList.remove("hidden");
+    window.scrollTo({top:0,behavior:"smooth"});
+  }).catch(function(err){
+    btn.disabled = false; btn.textContent = "Send to City Wide Compliance";
+    msg.className = "msg err";
+    msg.textContent = "We could not send that (" + err.message + "). Try again, or email it to " + COMPLIANCE_EMAIL + ".";
+  });
+});
+document.addEventListener("input", function(e){ if(e.target.classList) e.target.classList.remove("bad"); });
+</script>
+</body>
+</html>

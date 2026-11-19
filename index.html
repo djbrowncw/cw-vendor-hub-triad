@@ -245,7 +245,7 @@ footer .note{flex-basis:100%;font-size:11px}
         <div class="tag">Compliance</div>
         <h3>Send Insurance &amp; Compliance Docs</h3>
         <p>Certificates of insurance (including annual renewals), workers' compensation, W-9, and a voided check for direct deposit. Insurance agents can send certificates directly.</p>
-        <a class="btn outline" style="align-self:flex-start" data-link="compliance" href="#">Email the compliance team</a>
+        <a class="btn outline" style="align-self:flex-start" data-link="compliance" href="#">Upload documents</a>
       </div>
       <div class="card">
         <div class="tag">Your crew</div>
@@ -330,7 +330,7 @@ footer .note{flex-basis:100%;font-size:11px}
    replace the invoice mailto with its URL (e.g. "invoice.html"). */
 var LINKS = {
   invoice:    "invoice.html",
-  compliance: "mailto:nccompliance@gocitywide.com?subject=Compliance%20Documents"
+  compliance: "upload.html"
 };
 document.querySelectorAll("[data-link]").forEach(function(a){
   var url = LINKS[a.getAttribute("data-link")];

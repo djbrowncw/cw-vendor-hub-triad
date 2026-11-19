@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Become a City Wide Vendor | City Wide of The Triad</title>
+<meta name="description" content="Who City Wide of The Triad is, how vendors get paid, and the steps to get on file.">
+<style>
+:root{--red:#D22730;--red-dark:#B01F27;--black:#2D2A26;--grey:#636466;--light:#F5F5F5;
+--border:#E5E5E5;--gold:#E5B423;--green:#2E7D4F;
+--shadow:0 1px 3px rgba(45,42,38,.08),0 4px 14px rgba(45,42,38,.06);
+--shadow-lift:0 4px 10px rgba(45,42,38,.10),0 10px 28px rgba(45,42,38,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Verdana,'Liberation Sans','DejaVu Sans',Geneva,Tahoma,sans-serif;
+color:var(--black);background:var(--light);font-size:14px;line-height:1.65}
+a{color:var(--red);text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+
+.head{background:#fff;position:sticky;top:0;z-index:50;box-shadow:0 1px 8px rgba(45,42,38,.10)}
+.head .bar{max-width:1160px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;gap:14px}
+.logo{font-weight:700;font-size:17px;white-space:nowrap;color:var(--black)}
+.logo b{color:var(--red)}
+.head .back{margin-left:auto;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+color:var(--black);border:1.5px solid var(--border);border-radius:8px;padding:7px 12px;white-space:nowrap}
+.head .back:hover{border-color:var(--red);color:var(--red)}
+
+.hero{color:#fff;background:linear-gradient(180deg,#26231f 0%,var(--black) 75%)}
+.hero .wrap{padding-top:46px;padding-bottom:52px}
+.eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#bdb9b3;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:3px;background:var(--red);border-radius:2px}
+.hero h1{font-size:clamp(26px,4.4vw,42px);line-height:1.15;margin-top:12px;max-width:720px}
+.hero h1 span{color:#f2a3a7}
+.hero p{color:#cfcdc9;margin-top:14px;max-width:640px;font-size:14px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;font-family:inherit;font-size:12.5px;font-weight:700;border-radius:10px;padding:11px 18px;white-space:nowrap;border:none;cursor:pointer}
+.btn.solid{background:var(--red);color:#fff}
+.btn.solid:hover{background:var(--red-dark)}
+.btn.ghost{border:1.5px solid rgba(255,255,255,.55);color:#fff;background:none}
+.btn.outline{border:1.5px solid var(--border);color:var(--black);background:#fff}
+.btn.outline:hover{border-color:var(--red);color:var(--red)}
+.btn.done{background:var(--green);color:#fff}
+
+section{padding:46px 0 0;scroll-margin-top:70px}
+.shead .kick{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.shead h2{font-size:clamp(20px,2.6vw,26px);line-height:1.25;margin-top:4px}
+.shead p{color:var(--grey);margin-top:6px;max-width:700px;font-size:13.5px}
+.grid{display:grid;gap:16px;margin-top:20px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:20px 22px}
+.card h3{font-size:15px;margin-bottom:6px}
+.card p{font-size:13px;color:var(--grey)}
+.card .num{width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+
+.split{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;margin-top:20px;align-items:start}
+@media(max-width:780px){.split{grid-template-columns:1fr}}
+.prose p{font-size:13.5px;margin-bottom:12px}
+.paybox{background:var(--black);color:#fff;border-radius:14px;padding:22px 24px;border-left:5px solid var(--gold)}
+.paybox .kick{font-size:10.5px;font-weight:700;letter-spacing:.16em;color:var(--gold)}
+.paybox ul{list-style:none;margin-top:10px}
+.paybox li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:13px}
+.paybox li:last-child{border-bottom:none}
+.paybox li b{color:#fff}
+.paybox small{display:block;color:#bdb9b3;font-size:11.5px;margin-top:10px}
+
+.needs{list-style:none;margin-top:6px}
+.needs li{padding:8px 0 8px 26px;position:relative;font-size:13.5px;border-bottom:1px solid var(--border)}
+.needs li:last-child{border-bottom:none}
+.needs li::before{content:"\2713";position:absolute;left:0;top:8px;color:var(--green);font-weight:700}
+
+/* checklist */
+.progress{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:16px 20px;margin-top:20px}
+.progress .lbl{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--grey)}
+.bar{height:8px;background:var(--light);border-radius:6px;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--green);transition:width .3s}
+.stepnav{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+@media(max-width:700px){.stepnav{grid-template-columns:1fr 1fr}}
+.stepnav a{border:1.5px solid var(--border);border-radius:10px;padding:8px 10px;color:var(--black);font-size:11.5px;line-height:1.35}
+.stepnav a b{display:block;font-size:12.5px}
+.stepnav a.on{border-color:var(--green);background:#eef7f1}
+.stepnav a.on b::before{content:"\2713  ";color:var(--green)}
+
+details.step{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);margin-top:12px;scroll-margin-top:70px}
+details.step[open]{border-color:#d9d9d9}
+details.step.isdone{border-left:5px solid var(--green)}
+details.step summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 20px}
+details.step summary::-webkit-details-marker{display:none}
+details.step summary .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+details.step.isdone summary .n{background:var(--green)}
+details.step summary h3{font-size:15px}
+details.step summary small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+details.step summary .car{margin-left:auto;color:var(--grey);transition:transform .2s}
+details.step[open] summary .car{transform:rotate(180deg)}
+.sbody{padding:0 20px 20px 68px}
+@media(max-width:600px){.sbody{padding:0 18px 18px}}
+.sbody p{font-size:13.5px;margin-bottom:10px}
+.sbody ul{margin:0 0 12px 18px;font-size:13.5px}
+.sbody .acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.sbody .when{font-size:11.5px;color:var(--grey)}
+.soon{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--light);color:var(--grey);
+border:1px solid var(--border);border-radius:20px;padding:2px 8px;vertical-align:2px}
+.office{background:var(--light);border-radius:10px;padding:12px 14px;font-size:13px;margin:6px 0 12px}
+
+.pitfalls{list-style:none;counter-reset:p;margin-top:16px}
+.pitfalls li{counter-increment:p;background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 18px 14px 56px;margin-top:10px;position:relative;font-size:13.5px}
+.pitfalls li::before{content:counter(p);position:absolute;left:16px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--black);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.pitfalls b{display:block}
+
+.endcta{margin-top:40px;background:var(--black);color:#fff;border-radius:14px;padding:26px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.endcta h3{font-size:18px}
+.endcta p{color:#cfcdc9;font-size:13px}
+.endcta .btn{margin-left:auto}
+
+footer{border-top:1px solid var(--border);padding:22px 0;margin-top:48px;background:#fff}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11.5px;color:var(--grey);max-width:1160px}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div class="bar">
+    <a class="logo" href="./">City Wide <b>of The Triad</b></a>
+    <a class="back" href="./">&larr; Vendor Hub</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Vendor Hub &middot; Greensboro, Winston-Salem &amp; High Point</div>
+    <h1>Commercial properties. <span>On-time payments.</span> Local crews.</h1>
+    <p>City Wide Facility Solutions is a facility management company. We hold the service contracts for commercial buildings across the Triad and coordinate the work through local, independent vendors. If you run a crew that does janitorial, floor care, landscaping, windows, or the trades, this page is who we are and what working with us looks like.</p>
+    <div class="ctas">
+      <a class="btn solid" href="#how">See how it works</a>
+      <a class="btn ghost" href="#steps">Skip to the steps</a>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="who">
+    <div class="shead"><div class="kick">Who we are</div><h2>Facility management, done through local crews</h2>
+      <p>Every building we serve has a signed service agreement with City Wide and a Facility Solutions Manager who owns that relationship. We do not run crews. We coordinate the work through vendors like you.</p></div>
+    <div class="grid g3">
+      <div class="card"><h3>What we do</h3><p>We sell and manage commercial facility services for office buildings, medical, schools, warehouses and industrial sites. The client signs with us. We handle the sales, the contract, the scope, the inspections and the billing.</p></div>
+      <div class="card"><h3>How we do it</h3><p>Each property gets a Facility Solutions Manager who walks the building, writes a scope that makes sense, sets the price, and stays on the account. When the client needs something, they call us, not you.</p></div>
+      <div class="card"><h3>Where you fit</h3><p>You are the expert in your trade. You do the work under your own business name, with your own people and equipment. We manage the client and the contract. You invoice City Wide, never the client.</p></div>
+    </div>
+  </section>
+
+  <section id="paid">
+    <div class="shead"><div class="kick">How you get paid</div><h2>One invoice a month. A set pay date.</h2></div>
+    <div class="split">
+      <div class="prose">
+        <p>Most crews who have done commercial work know the feeling of finishing the job and then chasing the check for weeks. Working with City Wide, the schedule is set and the conditions are in your control.</p>
+        <p>Send one invoice a month covering every building you service. If it reaches us by <b>noon on the 1st</b>, you are paid on or around the <b>10th</b>. An invoice that comes in after noon on the 1st is paid on or around the <b>25th</b>, without exception.</p>
+        <p>Your monthly pay for each building is agreed in writing before you start, so there are no surprises on the invoice.</p>
+        <p><a href="invoice.html"><b>Submit an invoice &rarr;</b></a></p>
+      </div>
+      <div class="paybox">
+        <div class="kick">THE SCHEDULE</div>
+        <ul>
+          <li><b>Invoice due:</b> noon on the 1st</li>
+          <li><b>On-time invoices:</b> paid on or around the 10th</li>
+          <li><b>Late invoices:</b> paid on or around the 25th</li>
+          <li><b>Pay per building:</b> agreed in writing before you start</li>
+        </ul>
+        <small>Certain high-ticket projects carry a pay-when-paid stipulation. When one does, it is stated on the job before you accept it.</small>
+      </div>
+    </div>
+  </section>
+
+  <section id="cost">
+    <div class="shead"><div class="kick">What it costs to join</div><h2>Nothing. There is no fee.</h2>
+      <p>Nobody at City Wide will ask you for money to get on file or to be considered for work. Getting on file is paperwork and compliance, nothing more. What you do need is what any commercial contractor already carries:</p></div>
+    <div class="card" style="margin-top:16px">
+      <ul class="needs">
+        <li><b>A business bank account in your company name.</b> We pay businesses, not individuals.</li>
+        <li><b>General liability insurance</b> with the certificate holder reading exactly: CAVU NC LLC dba City Wide Facility Solutions, 2300 W Meadowview Road, Suite 107/109, Greensboro, NC 27407.</li>
+        <li><b>Workers' compensation, even if it's just you.</b> North Carolina only requires it at three or more employees, but City Wide requires it for every subcontractor regardless of size.</li>
+        <li><b>A W-9</b> in your exact business name.</li>
+        <li><b>Any license your trade requires</b> in North Carolina.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="shead"><div class="kick">How work reaches you</div><h2>From getting on file to your first invoice</h2></div>
+    <div class="grid g4">
+      <div class="card"><div class="num">1</div><h3>Get on file</h3><p>Finish the steps below. Most of the wait is usually the insurance agent.</p></div>
+      <div class="card"><div class="num">2</div><h3>Hear about work</h3><p>Your manager reaches out when a building fits your crew. You say yes or no. No obligation to take anything.</p></div>
+      <div class="card"><div class="num">3</div><h3>Walk the building</h3><p>You and the Facility Solutions Manager walk it together. You see the scope, schedule and monthly pay before you commit.</p></div>
+      <div class="card"><div class="num">4</div><h3>Start and get paid</h3><p>The building, scope and pay go in writing. You start, invoice City Wide by the 1st, and get paid around the 10th.</p></div>
+    </div>
+  </section>
+
+  <section id="steps">
+    <div class="shead"><div class="kick">Get on file</div><h2>Five steps, in order, at your pace</h2>
+      <p>Work top to bottom or jump to where you left off. Mark each step done and this page remembers your progress on this device.</p></div>
+
+    <div class="progress">
+      <div class="lbl">YOUR PROGRESS: <span id="pcount">0</span> OF 5 STEPS DONE</div>
+      <div class="bar"><i id="pbar"></i></div>
+      <div class="stepnav" id="stepnav">
+        <a href="#s1" data-s="1"><b>Services</b>5 minutes</a>
+        <a href="#s2" data-s="2"><b>Meet the Team</b>30 minutes</a>
+        <a href="#s3" data-s="3"><b>Vendor Packet</b>sign &amp; return</a>
+        <a href="#s4" data-s="4"><b>Insurance</b>GL + workers' comp</a>
+        <a href="#s5" data-s="5"><b>W-9 &amp; Banking</b>direct deposit</a>
+      </div>
+    </div>
+
+    <details class="step" id="s1" data-s="1" open>
+      <summary><span class="n">1</span><div><h3>Tell Us What Your Crew Does</h3><small>About 5 minutes</small></div><span class="car">&#9660;</span></summary>
+      <div class="sbody">
+        <p>Tell us every service your crew offers: janitorial, floor care, day porter, windows, landscaping, pressure washing, the trades, and more. When work opens that matches what you do, you hear from us first.</p>
+        <div class="acts">
+          <a class="btn outline" href="mailto:nccompliance@gocitywide.com?subject=New%20Vendor%20-%20Services%20We%20Offer&body=Company%20name%3A%0AContact%20name%3A%0APhone%3A%0ACities%20we%20cover%20(Greensboro%2C%20Winston-Salem%2C%20High%20Point%2C%20other)%3A%0AServices%20we%20offer%3A%0ACrew%20size%3A%0A">Email us your services</a>
+          <span class="soon">Online form coming soon</span>
+        </div>
+        <div class="acts" style="margin-top:12px"><button class="btn outline" type="button" data-mark="1">Mark Step 1 Done</button><span class="when">Done when you have sent us your services.</span></div>
+      </div>
+    </details>
+
+    <details class="step" id="s2" data-s="2">
+      <summary><span class="n">2</span><div><h3>Meet the Team</h3><small>30 minutes at our office</small></div><span class="car">&#9660;</span></summary>
+      <div class="sbody">
+        <p>A relaxed half hour to get to know each other. We explain how City Wide works, the types of properties we manage in the Triad and the kinds of work that open up, and we answer your questions. No paperwork needed to come by.</p>
+        <p>Bring anything that tells us about your company: photos of past jobs, examples of your work, business cards.</p>
+        <div class="office"><b>City Wide of The Triad</b><br>2300 W Meadowview Road, Suite 107/109, Greensboro, NC 27407<br>Call <a href="tel:9199092008">(919) 909-2008</a> to set a time.</div>
+        <div class="acts"><a class="btn outline" href="tel:9199092008">Call to book a visit</a><span class="soon">Online booking coming soon</span></div>
+        <div class="acts" style="margin-top:12px"><button class="btn outline" type="button" data-mark="2">Mark Step 2 Done</button><span class="when">Done after your visit.</span></div>
+      </div>
+    </details>
+
+    <details class="step" id="s3" data-s="3">
+      <summary><span class="n">3</span><div><h3>Sign Your Vendor Packet</h3><small>Read it, sign it, send it back</small></div><span class="car">&#9660;</span></summary>
+      <div class="sbody">
+        <p>The vendor packet is the agreement between your company and City Wide. It also spells out how a missed service is handled and what you are agreeing to. Read it before you sign. We would rather you know now than be surprised later.</p>
+        <div class="acts">
+          <a class="btn outline" href="mailto:nccompliance@gocitywide.com?subject=Vendor%20Packet%20Request&body=Please%20send%20the%20vendor%20packet%20for%3A%0ACompany%20name%3A%0AContact%20name%3A%0APhone%3A%0A">Request the packet</a>
+          <a class="btn outline" href="upload.html">Send back the signed packet</a>
+        </div>
+        <p class="when" style="margin-top:8px">Sending it back? On the upload page choose <b>Something Else</b> and attach the signed pages.</p>
+        <div class="acts" style="margin-top:12px"><button class="btn outline" type="button" data-mark="3">Mark Step 3 Done</button><span class="when">Done when the signed packet is sent.</span></div>
+      </div>
+    </details>
+
+    <details class="step" id="s4" data-s="4">
+      <summary><span class="n">4</span><div><h3>Insurance: General Liability &amp; Workers' Comp</h3><small>From your insurance agent</small></div><span class="car">&#9660;</span></summary>
+      <div class="sbody">
+        <p>Ask your agent for a certificate of insurance showing <b>general liability and workers' compensation</b>. Workers' comp is required for every subcontractor, even a one-person crew. The certificate holder must read exactly:</p>
+        <div class="office"><b>CAVU NC LLC dba City Wide Facility Solutions</b><br>2300 W Meadowview Road, Suite 107/109, Greensboro, NC 27407</div>
+        <p>Your agent can upload the certificate directly, or forward it to you to send in.</p>
+        <div class="acts"><a class="btn solid" href="upload.html">Upload your certificate</a></div>
+        <div class="acts" style="margin-top:12px"><button class="btn outline" type="button" data-mark="4">Mark Step 4 Done</button><span class="when">Done when the certificate is uploaded.</span></div>
+      </div>
+    </details>
+
+    <details class="step" id="s5" data-s="5">
+      <summary><span class="n">5</span><div><h3>W-9 &amp; Banking</h3><small>So we can pay you by direct deposit</small></div><span class="car">&#9660;</span></summary>
+      <div class="sbody">
+        <p>Send a signed <b>W-9</b> and a <b>voided business check or a bank letter</b> for direct deposit. Both need your company name exactly as it appears on your packet and insurance.</p>
+        <ul>
+          <li>No starter or temporary checks, screenshots, or handwritten account numbers.</li>
+          <li>Bank letters must be on bank letterhead and dated within the last 90 days.</li>
+        </ul>
+        <div class="acts"><a class="btn solid" href="upload.html">Upload your W-9 &amp; banking</a></div>
+        <div class="acts" style="margin-top:12px"><button class="btn outline" type="button" data-mark="5">Mark Step 5 Done</button><span class="when">Done when both are uploaded.</span></div>
+      </div>
+    </details>
+  </section>
+
+  <section id="pitfalls">
+    <div class="shead"><div class="kick">Avoid the delays</div><h2>The five things that slow vendors down</h2>
+      <p>Nearly every onboarding delay is one of these. Dodge them all and you are on file and eligible for work in days.</p></div>
+    <ol class="pitfalls">
+      <li><b>A personal name on the banking.</b> The check or bank letter needs your company name. We pay businesses, not individuals.</li>
+      <li><b>Names that almost match.</b> "Piedmont Cleaning" on the check and "Piedmont Cleaning Group LLC" on the packet sends it back to you. Letter for letter, everywhere.</li>
+      <li><b>No workers' comp.</b> Even a one-person crew needs it to work City Wide buildings. Ask your agent early; it is usually the longest wait.</li>
+      <li><b>A certificate naming the wrong holder.</b> "City Wide" alone is not enough. Your agent needs the exact certificate holder shown above.</li>
+      <li><b>Starter checks and stale letters.</b> Temporary checks, screenshots, and bank letters older than 90 days cannot be accepted.</li>
+    </ol>
+  </section>
+
+  <div class="endcta">
+    <div><h3>Paperwork done?</h3><p>Questions about where you stand? Email <a href="mailto:nccompliance@gocitywide.com" style="color:#f2a3a7">nccompliance@gocitywide.com</a> or call (919) 909-2008.</p></div>
+    <a class="btn solid" href="./">Back to the Vendor Hub</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>CAVU NC LLC dba City Wide Facility Solutions &middot; Vendor Resource Hub</div>
+    <div>There is no fee to join the vendor network. GREENSBORO &bull; WINSTON-SALEM &bull; HIGH POINT</div>
+  </div>
+</footer>
+
+<script>
+var KEY = "cwtriad_onboarding_steps";
+function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } }
+function save(s){ try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){} }
+var done = load();
+
+function render(){
+  var n = 0;
+  for(var i = 1; i <= 5; i++){
+    var on = !!done[i]; if(on) n++;
+    document.querySelector('details.step[data-s="'+i+'"]').classList.toggle("isdone", on);
+    document.querySelector('#stepnav a[data-s="'+i+'"]').classList.toggle("on", on);
+    var b = document.querySelector('[data-mark="'+i+'"]');
+    b.textContent = on ? "Step " + i + " done ✓ (undo)" : "Mark Step " + i + " Done";
+    b.className = on ? "btn done" : "btn outline";
+  }
+  document.getElementById("pcount").textContent = n;
+  document.getElementById("pbar").style.width = (n * 20) + "%";
+}
+document.querySelectorAll("[data-mark]").forEach(function(b){
+  b.addEventListener("click", function(){
+    var i = b.getAttribute("data-mark");
+    done[i] = !done[i]; save(done); render();
+    if(done[i]){
+      var cur = document.querySelector('details.step[data-s="'+i+'"]'), next = document.querySelector('details.step[data-s="'+(+i+1)+'"]');
+      cur.open = false;
+      if(next){ next.open = true; next.scrollIntoView({behavior:"smooth", block:"start"}); }
+    }
+  });
+});
+document.querySelectorAll("#stepnav a").forEach(function(a){
+  a.addEventListener("click", function(){ document.querySelector(a.getAttribute("href")).open = true; });
+});
+/* open the first unfinished step */
+(function(){
+  for(var i = 1; i <= 5; i++){ if(!done[i]){ document.querySelectorAll("details.step").forEach(function(d){ d.open = false; }); document.querySelector('details.step[data-s="'+i+'"]').open = true; break; } }
+})();
+render();
+</script>
+</body>
+</html>
